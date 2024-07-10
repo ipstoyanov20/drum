@@ -29,6 +29,9 @@ function Navbar() {
 							</ul>
 						</details>
 					</li>
+					<li>
+						<input type="checkbox" value="synthwave" className="toggle theme-controller" />
+					</li>
 				</ul>
 			</div>
 		</div>
