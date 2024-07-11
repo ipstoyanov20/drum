@@ -74,3 +74,11 @@
       @apply bg-background text-foreground;
     }
   }
+
+  @font-face {
+    font-family: 'Grotesk';
+    src: url(../assets/fonts/grotesk.ttf);
+  }
+  font-grotesk{
+    font-family: 'Grotesk';
+  }
