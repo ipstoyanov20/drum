@@ -19,6 +19,10 @@ const config = {
       },
     },
     extend: {
+      boxShadow: {
+        'inner-top': 'inset 0 5px 7px -4px rgba(0, 0, 0, 0.1)', // Customize this to your needs
+        'bottom': '3px 5px 0 0px black', // Customize as needed
+      },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
         grotesk: ['Grotesk','sans-serif'],
