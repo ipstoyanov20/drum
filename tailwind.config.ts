@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss"
 import daisyui from "daisyui"
 import {fontFamily} from "tailwindcss/defaultTheme"
+import { transform } from "next/dist/build/swc"
 const config = {
   darkMode: ["class"],
   content: [
@@ -22,6 +23,9 @@ const config = {
       boxShadow: {
         'inner-top': 'inset 0 5px 7px -4px rgba(0, 0, 0, 0.1)', // Customize this to your needs
         'bottom': '3px 5px 0 0px black', // Customize as needed
+      },
+      backgroundImage: {
+        'hero-gradient': 'linear-gradient(to right, #B59861, #8C6D4C)', // Adjust the second color as needed
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
@@ -76,10 +80,15 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "spin-slow": {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "spin-slow": "spin-slow 5s linear infinite",
       },
     },
   },

@@ -23,7 +23,7 @@ export default function Home() {
 						</div>
 						<img
 							src="darbuka2.jpeg"
-							className="z-0 max-w-sm  rounded-lg border-2 border-black shadow-bottom absolute"
+							className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom absolute"
 						/>
 					</div>
 
@@ -54,27 +54,68 @@ export default function Home() {
 
 			<div className="hero bg-background min-h-screen">
 				<div className="w-screen h-screen px-10 py-0 flex-col lg:flex-row">
-					<h1 className="font-grotesk font-bold text-9xl text-center mb-10">GENRE</h1>
-					<section className="grid place-items-center place-content-center grid-cols-3 translate-y-[100%]">
-						<div>
-							<h1 className="text-5xl font-bold font-grotesk text-center">BULGARIAN FOLK</h1>
-							<p className="py-6">
+					<h1 className="font-grotesk font-bold text-9xl text-center">
+						<span className="text-[#B59861] m-0">GENRES</span> <br /> I PLAY
+					</h1>
+					<section className="grid place-items-center place-content-center grid-cols-6 gap-3 gap-y-5 -ml-4 translate-y-[30%]">
+						<div className="shadow-bottom col-span-2 shadow-black border-2 border-black rounded-lg">
+							<h1 className="text-5xl font-bold font-grotesk text-left p-3 flex flex-row justify-between items-center">
+								BULGARIAN FOLK
+								<img
+									src="bg-flag.jpg"
+									className="mr-5 rounded-full w-16 h-16"
+									alt=""
+								/>
+							</h1>
+							<p className="py-6 p-4">
 								Provident cupiditate voluptatem et in. Quaerat fugiat ut
 								assumenda excepturi exercitationem quasi. In deleniti eaque aut
 								repudiandae et a id nisi.
 							</p>
 						</div>
-						<div>
-							<h1 className="text-5xl font-bold font-grotesk text-center">POP FOLK</h1>
-							<p className="py-6">
+						<div className="shadow-bottom col-span-2 shadow-black border-2 border-black rounded-lg">
+							<h1 className="text-5xl font-bold font-grotesk text-left p-3 flex flex-row justify-between items-center">
+								POP FOLK
+								<img
+									src="planeta.jpg"
+									className="mr-5 rounded-full w-16 h-16"
+									alt=""
+								/>
+							</h1>
+							<p className="py-6 p-4">
 								Provident cupiditate voluptatem et in. Quaerat fugiat ut
 								assumenda excepturi exercitationem quasi. In deleniti eaque aut
 								repudiandae et a id nisi.
 							</p>
 						</div>
-						<div>
-							<h1 className="text-5xl font-bold font-grotesk text-center">ARABIAN</h1>
-							<p className="py-6">
+						<div className="shadow-bottom col-span-2 shadow-black border-2 border-black rounded-lg">
+							<h1 className="text-5xl font-bold font-grotesk text-left p-3 flex flex-row justify-between items-center">
+								ORIENTAL
+								<img src="arabic.png" className="mr-5 w-16 h-16" alt="" />
+							</h1>
+							<p className="py-6 p-4">
+								Provident cupiditate voluptatem et in. Quaerat fugiat ut
+								assumenda excepturi exercitationem quasi. In deleniti eaque aut
+								repudiandae et a id nisi.
+							</p>
+						</div>
+						<div className="shadow-bottom col-span-3 shadow-black border-2 border-black rounded-lg">
+							<h1 className="text-5xl font-bold font-grotesk text-left p-3 flex flex-row justify-between items-center">
+								REGGAETON
+								<img src="reggaeton.png" className="mr-5 w-16 h-16" alt="" />
+							</h1>
+							<p className="py-6 p-4">
+								Provident cupiditate voluptatem et in. Quaerat fugiat ut
+								assumenda excepturi exercitationem quasi. In deleniti eaque aut
+								repudiandae et a id nisi.
+							</p>
+						</div>
+						<div className="shadow-bottom shadow-black border-2 col-span-3 border-black rounded-lg">
+							<h1 className="text-5xl font-bold font-grotesk text-left p-3 flex flex-row justify-between items-center">
+								RAP
+								<img src="rapper.png" className="mr-5 w-16 h-16" alt="" />
+							</h1>
+							<p className="py-6 p-4">
 								Provident cupiditate voluptatem et in. Quaerat fugiat ut
 								assumenda excepturi exercitationem quasi. In deleniti eaque aut
 								repudiandae et a id nisi.
@@ -85,14 +126,13 @@ export default function Home() {
 			</div>
 
 			<div className="hero bg-background min-h-screen">
-				<div className="hero-content flex-col lg:flex-row">
-					<img
-						src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg"
-						className="max-w-sm rounded-lg shadow-2xl"
-					/>
+				<div className="w-screen h-screen px-10 py-0 flex-col">
+					<h1 className="font-grotesk font-bold text-9xl text-center">
+						HOW IT WORKS
+					</h1>
 					<div>
-						<h1 className="text-5xl font-bold">Box Office News!</h1>
-						<p className="py-6">
+						<h1 className="text-5xl font-bold font-grotesk text-center">STEP 1</h1>
+						<p className="py-6 p-4">
 							Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
 							excepturi exercitationem quasi. In deleniti eaque aut repudiandae
 							et a id nisi.
