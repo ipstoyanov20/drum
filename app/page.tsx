@@ -1,11 +1,28 @@
+"use client";
 import logo from "../public/vercel.svg";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-export default function Home() {
-  return (
-		<main className="flex min-h-screen flex-col items-center overflow-hidden">
-			<Navbar />
+import { useRef } from "react";
 
+
+export default function Home() {
+	const radioRefs = useRef<(HTMLInputElement | null)[]>([]);  
+  // Function to handle click event
+  const handleClick = (index: number) => {
+    // Check the radio button at the given index
+    if (radioRefs.current[index]) {
+	  (radioRefs.current[index] as HTMLInputElement).click();
+    }
+  };
+
+	  const items = [
+		{ id: 1, title: '01', description: 'Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.' },
+		{ id: 2, title: '02', description: 'Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.' },
+		{ id: 3, title: '03', description: 'Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.' },
+		{ id: 4, title: '04', description: 'Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.' },
+	  ];
+	return (
+		<main className="flex min-h-screen flex-col items-center overflow-hidden">
 			<div className="hero grid place-items-start place-content-center bg-background min-h-screen">
 				<div className="flex-col lg:flex-row-reverse">
 					<div className="top-[20%] left-[5%] absolute">
@@ -125,24 +142,44 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="hero bg-background min-h-screen">
-				<div className="w-screen h-screen px-10 py-0 flex-col">
-					<h1 className="font-grotesk font-bold text-9xl text-center">
-						HOW IT WORKS
-					</h1>
-					<div>
-						<h1 className="text-5xl font-bold font-grotesk text-center">STEP 1</h1>
-						<p className="py-6 p-4">
-							Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-							excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-							et a id nisi.
-						</p>
-						<button className="btn btn-primary">Get Started</button>
-					</div>
+			<div className="w-screen h-screen p-10 mb-[30%]">
+				<h1 className="font-grotesk font-bold text-9xl text-center">
+					HOW IT WORKS?
+				</h1>
+				<div className="grid place-content-center place-items-center translate-y-[30%]">
+					<ul className="grid place-items-center place-content-center grid-cols-2 gap-x-10">
+						<img src="iphone.jpg" alt="" />
+						<div className="grid grid-rows-4 gap-y-2">
+							{items.map((item, index) => (
+								<li
+									key={item.id}
+									className="flex flex-row gap-5"
+									onClick={() => handleClick(index)}
+								>
+									<input
+									  ref={(el) => {
+									    if (el) {
+									      radioRefs.current[index] = el
+									    }
+									  }}
+									  type="radio"
+									  name="radio-6"
+									  className="mt-2 radio radio-warning"
+									/>
+									<div className="grid grid-rows-2">
+										<h1 className="font-grotesk font-bold text-4xl">
+											{item.title}
+										</h1>
+										<p className="p-0 translate-y-[-50%] w-96">
+											{item.description}
+										</p>
+									</div>
+								</li>
+							))}
+						</div>
+					</ul>
 				</div>
 			</div>
-
-			<Footer />
 		</main>
 	);
 }
