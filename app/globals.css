@@ -82,3 +82,6 @@
   font-grotesk{
     font-family: 'Grotesk';
   }
+  .radio:disabled {
+    opacity: 1;
+}

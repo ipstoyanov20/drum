@@ -2,25 +2,55 @@
 import logo from "../public/vercel.svg";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { useRef } from "react";
-
+import { useRef, useState } from "react";
 
 export default function Home() {
-	const radioRefs = useRef<(HTMLInputElement | null)[]>([]);  
-  // Function to handle click event
-  const handleClick = (index: number) => {
-    // Check the radio button at the given index
-    if (radioRefs.current[index]) {
-	  (radioRefs.current[index] as HTMLInputElement).click();
-    }
-  };
+	const [selectedItem, setSelectedItem] = useState<number | null>(null);
 
-	  const items = [
-		{ id: 1, title: '01', description: 'Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.' },
-		{ id: 2, title: '02', description: 'Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.' },
-		{ id: 3, title: '03', description: 'Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.' },
-		{ id: 4, title: '04', description: 'Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.' },
-	  ];
+	const radioRefs = useRef<(HTMLInputElement | null)[]>([]);
+	// Function to handle click event
+	const handleClick = (index: number) => {
+		// Set the selected item
+		setSelectedItem(index);
+		// Check the clicked radio button
+		const radio = radioRefs.current[index];
+		if (radio) {
+			radio.checked = true;
+		}
+		// Disable other radio buttons
+		radioRefs.current.forEach((ref, idx) => {
+			if (ref && idx !== index) {
+				ref.disabled = true;
+			}
+		});
+	};
+
+	const items = [
+		{
+			id: 1,
+			title: "01",
+			description:
+				"Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
+		},
+		{
+			id: 2,
+			title: "02",
+			description:
+				"Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
+		},
+		{
+			id: 3,
+			title: "03",
+			description:
+				"Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
+		},
+		{
+			id: 4,
+			title: "04",
+			description:
+				"Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
+		},
+	];
 	return (
 		<main className="flex min-h-screen flex-col items-center overflow-hidden">
 			<div className="hero grid place-items-start place-content-center bg-background min-h-screen">
@@ -148,25 +178,39 @@ export default function Home() {
 				</h1>
 				<div className="grid place-content-center place-items-center translate-y-[30%]">
 					<ul className="grid place-items-center place-content-center grid-cols-2 gap-x-10">
-						<img src="iphone.jpg" alt="" />
+						<img
+							className="rounded-s border-2 border-black"
+							src="iphone.jpg"
+							alt=""
+						/>
 						<div className="grid grid-rows-4 gap-y-2">
 							{items.map((item, index) => (
 								<li
 									key={item.id}
 									className="flex flex-row gap-5"
-									onClick={() => handleClick(index)}
+									onClick={() => {
+										handleClick(index);
+									}}
 								>
 									<input
-									  ref={(el) => {
-									    if (el) {
-									      radioRefs.current[index] = el
-									    }
-									  }}
-									  type="radio"
-									  name="radio-6"
-									  className="mt-2 radio radio-warning"
+										ref={(el) => {
+											if (el) {
+												radioRefs.current[index] = el;
+											}
+										}}
+										type="radio"
+										name="radio-6"
+										className="mt-2 radio radio-warning"
+										checked={selectedItem === index}
+										onChange={() => {}} // Add an onChange to suppress React warning about uncontrolled components turning into controlled
 									/>
-									<div className="grid grid-rows-2">
+									<div
+										className={`grid grid-rows-2 ${
+											selectedItem !== null && selectedItem !== index
+												? "opacity-50"
+												: "opacity-100"
+										}`}
+									>
 										<h1 className="font-grotesk font-bold text-4xl">
 											{item.title}
 										</h1>
