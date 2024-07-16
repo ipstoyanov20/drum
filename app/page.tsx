@@ -4,25 +4,23 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { useRef, useState } from "react";
 
+
 export default function Home() {
-	const [selectedItem, setSelectedItem] = useState<number | null>(null);
+	const [selectedItem, setSelectedItem] = useState<number | null>(0);
+	const [positionLeft, setPositionLeft] = useState<number>(150); 
+
 
 	const radioRefs = useRef<(HTMLInputElement | null)[]>([]);
 	// Function to handle click event
 	const handleClick = (index: number) => {
 		// Set the selected item
 		setSelectedItem(index);
+		setPositionLeft(150 - index * 100);
 		// Check the clicked radio button
 		const radio = radioRefs.current[index];
 		if (radio) {
 			radio.checked = true;
 		}
-		// Disable other radio buttons
-		radioRefs.current.forEach((ref, idx) => {
-			if (ref && idx !== index) {
-				ref.disabled = true;
-			}
-		});
 	};
 
 	const items = [
@@ -31,24 +29,28 @@ export default function Home() {
 			title: "01",
 			description:
 				"Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
+			imgSrc: "iphone.jpg",
 		},
 		{
 			id: 2,
 			title: "02",
 			description:
 				"Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
+			imgSrc: "iphone.jpg",
 		},
 		{
 			id: 3,
 			title: "03",
 			description:
 				"Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
+			imgSrc: "iphone.jpg",
 		},
 		{
 			id: 4,
 			title: "04",
 			description:
 				"Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
+			imgSrc: "iphone.jpg",
 		},
 	];
 	return (
@@ -107,7 +109,7 @@ export default function Home() {
 					<section className="grid place-items-center place-content-center grid-cols-6 gap-3 gap-y-5 -ml-4 translate-y-[30%]">
 						<div className="shadow-bottom col-span-2 shadow-black border-2 border-black rounded-lg">
 							<h1 className="text-5xl font-bold font-grotesk text-left p-3 flex flex-row justify-between items-center">
-								BULGARIAN FOLK
+								BG FOLK
 								<img
 									src="bg-flag.jpg"
 									className="mr-5 rounded-full w-16 h-16"
@@ -174,15 +176,17 @@ export default function Home() {
 
 			<div className="w-screen h-screen p-10 mb-[30%]">
 				<h1 className="font-grotesk font-bold text-9xl text-center">
-					HOW IT WORKS?
+					HOW IT <br /> WORKS?
 				</h1>
 				<div className="grid place-content-center place-items-center translate-y-[30%]">
 					<ul className="grid place-items-center place-content-center grid-cols-2 gap-x-10">
-						<img
-							className="rounded-s border-2 border-black"
-							src="iphone.jpg"
-							alt=""
-						/>
+						<div className="z-0 w-[500px] h-[500px] relative rounded-t-[30%] rounded-b-[10%] shadow-2xl border-2 overflow-hidden border-black ">
+							<span className={`absolute top-0 left-[${positionLeft}%] w-full h-full bg-black flex flex-row justify-center items-center transition-all duration-500`}>
+								{items.map((item, index)=>(
+									<img key={index} src={item.imgSrc} className="w-full h-full" alt="" />
+								))}
+							</span>
+						</div>
 						<div className="grid grid-rows-4 gap-y-2">
 							{items.map((item, index) => (
 								<li
