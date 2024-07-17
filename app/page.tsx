@@ -221,7 +221,7 @@ export default function Home() {
 								))}
 							</span>
 						</div>
-						<div className="grid grid-cols-2 grid-rows-2 sm:grid-rows-4 sm:grid-cols-1 ml-[-450%] from-ex:max-to-ex:gap-x-60 from-ex:max-to-ex:ml-[-550%] sm:ml-0 from-ex:max-to-ex:translate-y-[40%]  translate-y-[25%] sm:translate-y-0 scale-[60%] sm:scale-100 gap-x-48 sm:gap-x-0">
+						<div className="grid grid-cols-2 grid-rows-2 sm:grid-rows-4 sm:grid-cols-1 ml-[-450%] from-ex:max-to-ex:gap-x-52 from-ex:max-to-ex:ml-[-620%] sm:ml-0 from-ex:max-to-ex:translate-y-[40%]  translate-y-[25%] sm:translate-y-0 scale-[60%] sm:scale-100 gap-x-48 sm:gap-x-0">
 							{items.map((item, index) => (
 								<li
 									key={item.id}
