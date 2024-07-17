@@ -71,6 +71,10 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      screens: {
+        'from-ex':'200px',
+        'to-ex':'430px',
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
