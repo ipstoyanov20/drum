@@ -198,10 +198,10 @@ export default function Home() {
 								{items.map((item, index) => (
 									<div
 										className="w-[600px] h-[500px] flex justify-center items-center"
+										key={index}
 									>
 										<Image
 											src={item.imgSrc.src}
-											key={index}
 											className="object-contain max-w-full max-h-full"
 											alt=""
 											width={600}
