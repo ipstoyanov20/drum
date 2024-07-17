@@ -242,7 +242,7 @@ export default function Home() {
 										onChange={() => {}} // Add an onChange to suppress React warning about uncontrolled components turning into controlled
 									/>
 									<div
-										className={`felx flex-row ${
+										className={`flex flex-col mb-[-20px] ${
 											selectedItem !== null && selectedItem !== index
 												? "opacity-50"
 												: "opacity-100"
