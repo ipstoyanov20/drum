@@ -90,6 +90,9 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "spin-slow": "spin-slow 5s linear infinite",
       },
+      transitionTimingFunction: {
+        'slider-cubic': 'cubic-bezier(0.4, 0.0, 0.2, 1)',
+      }
     },
   },
   plugins: [

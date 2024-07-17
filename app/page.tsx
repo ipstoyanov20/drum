@@ -1,7 +1,11 @@
 "use client";
-import logo from "../public/vercel.svg";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import chooseImg from "../public/choose.png";
+import sendImg from "../public/send.png";
+import payImg from "../public/pay.png";
+import receiveImg from "../public/receive.png";
+import blobImg from "../public/blob.png";
+import Image from "next/image";
+
 import { useRef, useState } from "react";
 
 
@@ -29,28 +33,32 @@ export default function Home() {
 			title: "01",
 			description:
 				"Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
-			imgSrc: "iphone.jpg",
+			subtitle: "CHOOSE",
+			imgSrc: chooseImg,
 		},
 		{
 			id: 2,
 			title: "02",
 			description:
-				"Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
-			imgSrc: "iphone.jpg",
+			"Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
+			subtitle: "SEND & ORDER",
+			imgSrc: sendImg,
 		},
 		{
 			id: 3,
 			title: "03",
 			description:
-				"Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
-			imgSrc: "iphone.jpg",
+			"Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
+			subtitle: "PAY",
+			imgSrc: payImg,
 		},
 		{
 			id: 4,
 			title: "04",
 			description:
-				"Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
-			imgSrc: "iphone.jpg",
+			"Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.",
+			subtitle: "RECEIVE",
+			imgSrc: receiveImg,
 		},
 	];
 	return (
@@ -174,16 +182,32 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="w-screen h-screen p-10 mb-[30%]">
+			<div className="w-screen h-screen p-10 mb-[40%]">
 				<h1 className="font-grotesk font-bold text-9xl text-center">
 					HOW IT <br /> WORKS?
 				</h1>
 				<div className="grid place-content-center place-items-center translate-y-[30%]">
-					<ul className="grid place-items-center place-content-center grid-cols-2 gap-x-10">
-						<div className="z-0 w-[500px] h-[500px] relative rounded-t-[30%] rounded-b-[10%] shadow-2xl border-2 overflow-hidden border-black ">
-							<span className={`absolute top-0 left-[${positionLeft}%] w-full h-full bg-black flex flex-row justify-center items-center transition-all duration-500`}>
-								{items.map((item, index)=>(
-									<img key={index} src={item.imgSrc} className="w-full h-full" alt="" />
+					<ul className="grid place-items-center place-content-center relative grid-cols-2 gap-x-48">
+						<img src={blobImg.src} className="absolute translate-x-[-130%] translate-y-[-70%] scale-50" alt="" />
+						<img src={blobImg.src} className="absolute translate-x-[-20%] translate-y-[70%] scale-50" alt="" />
+						<div className="z-0 shadow-bottom w-[600px] h-[500px] relative rounded-t-[5%] rounded-b-[5%] border-2 overflow-hidden border-black ">
+							<span
+								style={{ transform: `translateX(${positionLeft}%)`, gridTemplateColumns: "repeat(4, 600px)" }}
+								className="bg-transparent absolute w-full h-full bg-black grid justify-center items-center transition-all duration-500 ease-slider-cubic"
+							>
+								{items.map((item, index) => (
+									<div
+										className="w-[600px] h-[500px] flex justify-center items-center"
+									>
+										<Image
+											src={item.imgSrc.src}
+											key={index}
+											className="object-contain max-w-full max-h-full"
+											alt=""
+											width={600}
+											height={500}
+										/>
+									</div>
 								))}
 							</span>
 						</div>
@@ -191,7 +215,7 @@ export default function Home() {
 							{items.map((item, index) => (
 								<li
 									key={item.id}
-									className="flex flex-row gap-5"
+									className="flex flex-row gap-5 cursor-pointer"
 									onClick={() => {
 										handleClick(index);
 									}}
@@ -204,20 +228,23 @@ export default function Home() {
 										}}
 										type="radio"
 										name="radio-6"
-										className="mt-2 radio radio-warning"
+										className="translate-y-[-85%] radio radio-warning"
 										checked={selectedItem === index}
 										onChange={() => {}} // Add an onChange to suppress React warning about uncontrolled components turning into controlled
 									/>
 									<div
-										className={`grid grid-rows-2 ${
+										className={`felx flex-row ${
 											selectedItem !== null && selectedItem !== index
 												? "opacity-50"
 												: "opacity-100"
 										}`}
 									>
-										<h1 className="font-grotesk font-bold text-4xl">
+										<h1 className="font-grotesk font-bold translate-y-[-80%] text-4xl">
 											{item.title}
 										</h1>
+										<h2 className="font-grotesk font-bold text-xl translate-y-[-80%] py-2 mb-5">
+											{item.subtitle}
+										</h2>
 										<p className="p-0 translate-y-[-50%] w-96">
 											{item.description}
 										</p>
