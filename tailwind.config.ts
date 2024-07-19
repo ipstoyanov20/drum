@@ -76,6 +76,10 @@ const config = {
         'to-ex':'430px',
       },
       keyframes: {
+        blob: {
+          '0%, 100%': { borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' },
+          '50%': {borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%' },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -90,6 +94,7 @@ const config = {
         },
       },
       animation: {
+        'blob': 'blob 10s ease-in-out infinite',
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "spin-slow": "spin-slow 5s linear infinite",

@@ -5,6 +5,8 @@ import payImg from "../public/pay.png";
 import receiveImg from "../public/receive.png";
 import blobImg from "../public/blob.png";
 import Image from "next/image";
+import Spline from '@splinetool/react-spline';
+
 
 import { useRef, useState } from "react";
 
@@ -14,6 +16,7 @@ export default function Home() {
 	const [positionLeft, setPositionLeft] = useState<number>(150); 
 
 	const handleSubmit = (event :any) => {
+
 		event.preventDefault(); // Prevent default form submission behavior
 	
 		// Create a FormData object, passing the form event target
@@ -280,59 +283,70 @@ export default function Home() {
 					</ul>
 				</div>
 			</div>
-
-			<form onSubmit={handleSubmit} className="w-screen h-screen p-10 from-ex:max-to-ex:mt-[160%] mt-[130%] sm:mt-0 from-ex:max-to-ex:mb-[20%] sm:mb-[50%]">
-				<div className="mb-4">
-					<label
-						htmlFor="email"
-						className="block text-sm font-grotesk text-gray-700"
-					>
-						Email
-					</label>
-					<input
-						type="email"
-						name="email"
-						id="email"
-						required
-						className="mt-1 block w-full px-4 py-3  rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-					/>
-				</div>
-				<div className="mb-4">
-					<label
-						htmlFor="phone"
-						className="block text-sm font-grotesk text-gray-700"
-					>
-						Phone Number
-					</label>
-					<input
-						type="tel"
-						name="phone"
-						id="phone"
-						required
-						className="mt-1 block w-full px-4 py-3  rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-					/>
-				</div>
-				<div className="mb-4">
-					<label
-						htmlFor="additionalInfo"
-						className="block text-sm font-grotesk text-gray-700"
-					>
-						Additional Information
-					</label>
-					<textarea
-						name="additionalInfo"
-						id="additionalInfo"
-						rows={4}
-						className="mt-1 block w-full px-4 py-3 bg-white rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-					></textarea>
-				</div>
-				<button
-					type="submit"
-					className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+			<div className="w-full h-full flex justify-between items-start p-10">
+				
+					<div className="p-5 bg-[#B59861] shadow-md w-[500px] h-[500px] ml-[10%] animate-blob transition-all ease-in-out">
+						<Spline
+							className=" cursor-pointer w-full h-full"
+							scene="https://prod.spline.design/7c944-ndpVCUK5gj/scene.splinecode"
+						/>
+					</div>
+				<form
+					onSubmit={handleSubmit}
+					className="w-1/2 h-full p-10 from-ex:max-to-ex:mt-[160%] mt-[130%] sm:mt-0 from-ex:max-to-ex:mb-[20%]"
 				>
-					SUBMIT
-				</button>
-			</form>
+					<div className="mb-4">
+						<label
+							htmlFor="email"
+							className="block text-sm font-grotesk text-gray-700"
+						>
+							Email
+						</label>
+						<input
+							type="email"
+							name="email"
+							id="email"
+							required
+							className="mt-1 block w-full px-4 py-3  rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+						/>
+					</div>
+					<div className="mb-4">
+						<label
+							htmlFor="phone"
+							className="block text-sm font-grotesk text-gray-700"
+						>
+							Phone Number
+						</label>
+						<input
+							type="tel"
+							name="phone"
+							id="phone"
+							required
+							className="mt-1 block w-full px-4 py-3  rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+						/>
+					</div>
+					<div className="mb-4">
+						<label
+							htmlFor="additionalInfo"
+							className="block text-sm font-grotesk text-gray-700"
+						>
+							Additional Information
+						</label>
+						<textarea
+							name="additionalInfo"
+							id="additionalInfo"
+							rows={4}
+							className="mt-1 block w-full px-4 py-3 bg-white rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+						></textarea>
+					</div>
+					<button
+						type="submit"
+						className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#B59861] hover:bg-[#B59861]/90 transition-all duration-100"
+					>
+						SUBMIT
+					</button>
+				</form>
+			</div>
 		</main>
 	);
 }
