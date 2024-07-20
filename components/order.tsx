@@ -1,3 +1,4 @@
+"use server";
 import React from 'react'
 import Spline from '@splinetool/react-spline/next';
 import OrderForm from './order-form';
