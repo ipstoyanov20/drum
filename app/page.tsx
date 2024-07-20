@@ -283,7 +283,7 @@ export default function Home() {
 					</ul>
 				</div>
 			</div>
-			<h1 className="font-grotesk font-bold from-ex:max-to-ex:text-5xl from-ex:max-to-ex:mt-[-30%] text-7xl md:mt-10 mb-5 sm:text-9xl text-center">
+			<h1 className="font-grotesk font-bold from-ex:max-to-ex:text-5xl from-ex:max-to-ex:mt-[-10%] text-7xl md:mt-10 mb-5 sm:text-9xl text-center">
 				ORDER
 			</h1>
 			<div className="w-full h-full flex justify-between items-start p-10 sm:flex-row flex-col">
