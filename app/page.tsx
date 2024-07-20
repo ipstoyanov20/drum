@@ -200,7 +200,7 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="w-screen h-screen p-10 from-ex:max-to-ex:mt-[160%] mt-[130%] sm:mt-0 from-ex:max-to-ex:mb-[0%] sm:mb-[25%]">
+			<div className="w-screen h-screen p-10 from-ex:max-to-ex:mt-[180%] mt-[130%] sm:mt-0 from-ex:max-to-ex:mb-[0%] sm:mb-[25%]">
 				<h1 className="font-grotesk font-bold from-ex:max-to-ex:text-5xl text-7xl mb-5 sm:text-9xl text-center">
 					HOW IT <br /> WORKS?
 				</h1>
@@ -283,11 +283,11 @@ export default function Home() {
 					</ul>
 				</div>
 			</div>
-			<h1 className="font-grotesk font-bold from-ex:max-to-ex:text-5xl from-ex:max-to-ex:mt-[-10%] text-7xl md:mt-10 mb-5 sm:text-9xl text-center">
+			<h1 className="font-grotesk font-bold from-ex:max-to-ex:text-5xl from-ex:max-to-ex:mt-[10%] text-7xl md:mt-10 mb-5 sm:text-9xl text-center">
 				ORDER
 			</h1>
 			<div className="w-full h-full flex justify-between items-start p-10 sm:flex-row flex-col">
-				<div className="p-5 bg-[#B59861] shadow-md from-ex:max-to-ex:scale-[50%] w-96 h-[27rem] sm:h-1/2 sm:w-1/3 scale-75 sm:scale-100 from-ex:max-to-ex:ml-[-10%] from-ex:max-to-ex:mt-[-30%] mt-[-10%] sm:mt-0 ml-[-5%] sm:ml-[10%] animate-blob transition-all ease-in-out">
+				<div className="p-5 bg-[#B59861] shadow-md from-ex:max-to-ex:scale-[50%] w-96 h-[27rem] sm:h-[27rem] sm:w-[27rem] scale-75 sm:scale-100 from-ex:max-to-ex:ml-[-10%] from-ex:max-to-ex:mt-[-30%] mt-[-10%] sm:mt-0 ml-[-5%] sm:ml-[10%] animate-blob transition-all ease-in-out">
 					<Spline
 						className=" cursor-pointer w-full h-full"
 						scene="https://prod.spline.design/7c944-ndpVCUK5gj/scene.splinecode"
@@ -297,7 +297,7 @@ export default function Home() {
 					onSubmit={handleSubmit}
 					className="w-full sm:w-1/2 h-full p-5 sm:p-10 from-ex:max-to-ex:mt-[-20%] mt-[0%] sm:mt-0 from-ex:max-to-ex:mb-[20%]"
 				>
-					<div className="flex  flex-col sm:flex-row  gap-0 sm:gap-5">
+					<div className="flex  flex-col sm:flex-row gap-0 sm:gap-5">
 						<div className="mb-4">
 							<label
 								htmlFor="email"
