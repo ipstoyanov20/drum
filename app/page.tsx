@@ -239,7 +239,7 @@ export default function Home() {
 								))}
 							</span>
 						</div>
-						<div className="grid grid-cols-2 grid-rows-2 sm:grid-rows-4 sm:grid-cols-1 ml-[-450%] from-ex:max-to-ex:gap-x-52 from-ex:max-to-ex:ml-[-620%] sm:ml-0 from-ex:max-to-ex:translate-y-[40%]  translate-y-[25%] sm:translate-y-0 scale-[60%] sm:scale-100 gap-x-48 sm:gap-x-0">
+						<div className="grid grid-cols-2 grid-rows-2 sm:grid-rows-4 sm:grid-cols-1 ml-[-450%] from-ex:max-to-ex:gap-x-52 from-ex:max-to-ex:ml-[-620%] sm:ml-0 from-ex:max-to-ex:translate-y-[40%]  translate-y-[25%] sm:translate-y-0 scale-[60%] sm:scale-100 gap-x-48 sm:gap-y-5 sm:gap-x-0">
 							{items.map((item, index) => (
 								<li
 									key={item.id}
@@ -283,46 +283,65 @@ export default function Home() {
 					</ul>
 				</div>
 			</div>
-			<div className="w-full h-full flex justify-between items-start p-10">
-				
-					<div className="p-5 bg-[#B59861] shadow-md w-[500px] h-[500px] ml-[10%] animate-blob transition-all ease-in-out">
-						<Spline
-							className=" cursor-pointer w-full h-full"
-							scene="https://prod.spline.design/7c944-ndpVCUK5gj/scene.splinecode"
-						/>
-					</div>
+			<h1 className="font-grotesk font-bold from-ex:max-to-ex:text-5xl from-ex:max-to-ex:mt-[-30%] text-7xl md:mt-10 mb-5 sm:text-9xl text-center">
+				ORDER
+			</h1>
+			<div className="w-full h-full flex justify-between items-start p-10 sm:flex-row flex-col">
+				<div className="p-5 bg-[#B59861] shadow-md from-ex:max-to-ex:scale-[50%] w-96 h-[27rem] sm:h-1/2 sm:w-1/3 scale-75 sm:scale-100 from-ex:max-to-ex:ml-[-10%] from-ex:max-to-ex:mt-[-30%] mt-[-10%] sm:mt-0 ml-[-5%] sm:ml-[10%] animate-blob transition-all ease-in-out">
+					<Spline
+						className=" cursor-pointer w-full h-full"
+						scene="https://prod.spline.design/7c944-ndpVCUK5gj/scene.splinecode"
+					/>
+				</div>
 				<form
 					onSubmit={handleSubmit}
-					className="w-1/2 h-full p-10 from-ex:max-to-ex:mt-[160%] mt-[130%] sm:mt-0 from-ex:max-to-ex:mb-[20%]"
+					className="w-full sm:w-1/2 h-full p-5 sm:p-10 from-ex:max-to-ex:mt-[-20%] mt-[0%] sm:mt-0 from-ex:max-to-ex:mb-[20%]"
 				>
-					<div className="mb-4">
-						<label
-							htmlFor="email"
-							className="block text-sm font-grotesk text-gray-700"
-						>
-							Email
-						</label>
-						<input
-							type="email"
-							name="email"
-							id="email"
-							required
-							className="mt-1 block w-full px-4 py-3  rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-						/>
+					<div className="flex flex-row gap-5">
+						<div className="mb-4">
+							<label
+								htmlFor="email"
+								className="block text-sm font-grotesk text-gray-700"
+							>
+								Email
+							</label>
+							<input
+								type="email"
+								name="email"
+								id="email"
+								required
+								className="mt-1 block w-full px-4 py-3 bg-transparent shadow-bottom rounded-md border-black border-2"
+							/>
+						</div>
+						<div className="mb-4">
+							<label
+								htmlFor="phone"
+								className="block text-sm font-grotesk text-gray-700"
+							>
+								Phone Number
+							</label>
+							<input
+								type="tel"
+								name="phone"
+								id="phone"
+								required
+								className="mt-1 block w-full px-4 py-3 bg-transparent  rounded-md border-black border-2 shadow-bottom"
+							/>
+						</div>
 					</div>
-					<div className="mb-4">
+					<div className="mb-4 flex-1">
 						<label
-							htmlFor="phone"
+							htmlFor="YTlink"
 							className="block text-sm font-grotesk text-gray-700"
 						>
-							Phone Number
+							Youtube link for a song
 						</label>
 						<input
-							type="tel"
-							name="phone"
+							type="text"
+							name="YTlink"
 							id="phone"
 							required
-							className="mt-1 block w-full px-4 py-3  rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+							className="mt-1 block w-full px-4 py-3 bg-transparent  rounded-md border-black border-2 shadow-bottom"
 						/>
 					</div>
 					<div className="mb-4">
@@ -336,7 +355,7 @@ export default function Home() {
 							name="additionalInfo"
 							id="additionalInfo"
 							rows={4}
-							className="mt-1 block w-full px-4 py-3 bg-white rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+							className="mt-1 block w-full px-4 py-3 bg-transparent rounded-md border-black border-2 shadow-bottom"
 						></textarea>
 					</div>
 					<button
