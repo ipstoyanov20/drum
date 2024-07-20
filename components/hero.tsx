@@ -40,7 +40,7 @@ function Hero() {
 								ORDER
 							</button>
 							<button className="ml-0 whitespace-nowrap  relative after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg w-96  sm:w-36 h-10 shadow-inner-top grid place-content-center shadow-white border border-[#B59861] rounded-sm px-4 py-3 mt-3 sm:m-3 bg-transparent text-[#B59861] font-bold font-grotesk ">
-								SEE INTERVIEWS
+								SEE REVIEWS
 							</button>
 						</div>
 					</div>

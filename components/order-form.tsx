@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { db } from "@/app/firebaseConfig";
+import { db } from "@/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 function OrderForm() {
 	async function AddData(data: any) {

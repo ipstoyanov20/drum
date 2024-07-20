@@ -12,7 +12,7 @@ function Order() {
 			<div className="w-full h-full flex justify-between items-start p-10 sm:flex-row flex-col">
 				<div className="p-5 bg-[#B59861] shadow-md from-ex:max-to-ex:scale-[50%] w-96 h-[27rem] sm:h-[27rem] sm:w-[27rem] scale-75 sm:scale-100 from-ex:max-to-ex:ml-[-10%] from-ex:max-to-ex:mt-[-30%] mt-[-10%] sm:mt-0 ml-[-5%] sm:ml-[10%] animate-blob transition-all ease-in-out">
 					<Spline
-						className=" cursor-pointer w-full h-full"
+						className="cursor-pointer w-full h-full"
 						scene="https://prod.spline.design/7c944-ndpVCUK5gj/scene.splinecode"
 					/>
 				</div>

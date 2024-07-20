@@ -1,3 +1,4 @@
+import React from "react";
 import Order from "@/components/order";
 import Works from "@/components/how-it-works";
 import Genres from "@/components/genres";

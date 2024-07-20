@@ -30,20 +30,53 @@ function Navbar() {
   );
 
   return (
-    <div className="navbar bg-background">
-      <div className="flex-1">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
-      </div>
-      <div className="flex-none">
-        <button className="btn btn-square btn-ghost lg:hidden" onClick={() => setIsOpen(!isOpen)}>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-          </svg>
-        </button>
-      </div>
-      {isOpen && <MenuModal />}
-    </div>
-  );
+		<div className="navbar flex flex-row justify-between bg-background">
+			<div className="flex-1">
+				<a className="btn btn-ghost text-xl">daisyUI</a>
+			</div>
+			<div className="flex-none">
+				<button
+					className="btn btn-square btn-ghost lg:hidden"
+					onClick={() => setIsOpen(!isOpen)}
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						className="h-6 w-6"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth="2"
+							d="M4 6h16M4 12h16m-7 6h7"
+						/>
+					</svg>
+				</button>
+
+				<ul className="menu menu-horizontal px-1 hidden lg:flex">
+					<li>
+						<a>Link</a>
+					</li>
+					<li>
+						<details>
+							<summary>Parent</summary>
+							<ul className="bg-base-100 rounded-t-none p-2">
+								<li>
+									<a>Link 1</a>
+								</li>
+								<li>
+									<a>Link 2</a>
+								</li>
+							</ul>
+						</details>
+					</li>
+				</ul>
+			</div>
+			{isOpen && <MenuModal />}
+		</div>
+	);
 }
 
 export default Navbar;
