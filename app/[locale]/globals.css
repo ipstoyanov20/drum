@@ -70,6 +70,7 @@
     * {
       @apply border-border;
     }
+
     body {
       @apply bg-background text-foreground;
     }
@@ -79,17 +80,19 @@
     font-family: 'Grotesk';
     src: url(../../assets/fonts/grotesk.ttf);
   }
-  font-grotesk{
+
+  font-grotesk {
     font-family: 'Grotesk';
   }
+
   .radio:disabled {
     opacity: 1;
   }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px white inset !important;
     -webkit-text-fill-color: black !important;
-}
+  }

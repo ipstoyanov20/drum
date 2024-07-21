@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import LanguageSwitcher from './lang-switcher';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +55,7 @@ function Navbar() {
 						/>
 					</svg>
 				</button>
-
+				<LanguageSwitcher />
 				<ul className="menu menu-horizontal px-1 hidden lg:flex">
 					<li>
 						<a>Link</a>
