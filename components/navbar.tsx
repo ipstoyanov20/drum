@@ -7,28 +7,41 @@ function Navbar() {
 
   // Simple modal component for the menu
   const MenuModal = () => (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-start pt-10">
-      <div className="bg-white rounded-lg p-5">
-        <ul className="menu menu-vertical">
-          <li><a href="#">About me</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="bg-background rounded-t-none p-2">
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <input type="checkbox" value="synthwave" className="toggle theme-controller" />
-          </li>
-        </ul>
-        <button className="btn btn-primary mt-4" onClick={() => setIsOpen(false)}>Close</button>
-      </div>
-    </div>
-  );
+		<div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-start pt-10">
+			<div className="bg-white rounded-lg p-5">
+				<ul className="menu menu-vertical">
+					<li>
+						<a href="#">About me</a>
+					</li>
+					<li>
+						<a href="#">Pricing</a>
+					</li>
+					<li>
+						<details>
+							<summary>Parent</summary>
+							<ul className="bg-background rounded-t-none p-2">
+								<li>
+									<a href="#">Link 1</a>
+								</li>
+								<li>
+									<a href="#">Link 2</a>
+								</li>
+							</ul>
+						</details>
+					</li>
+					<li>
+						<LanguageSwitcher />{" "}
+					</li>
+				</ul>
+				<button
+					className="btn btn-primary mt-4"
+					onClick={() => setIsOpen(false)}
+				>
+					Close
+				</button>
+			</div>
+		</div>
+	);
 
   return (
 		<div className="navbar flex flex-row justify-between bg-background">
@@ -55,7 +68,9 @@ function Navbar() {
 						/>
 					</svg>
 				</button>
-				<LanguageSwitcher />
+				<span className='hidden lg:flex'>
+					<LanguageSwitcher />
+				</span>
 				<ul className="menu menu-horizontal px-1 hidden lg:flex">
 					<li>
 						<a>Link</a>
