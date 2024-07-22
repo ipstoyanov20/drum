@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "i18nexus pull && next dev",
-    "build": "i18nexus pull && next build",
-    "start": "i18nexus pull && next start",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
@@ -14,14 +14,11 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "firebase": "^10.12.4",
-    "i18next": "^23.12.2",
-    "i18next-resources-to-backend": "^1.2.1",
     "lucide-react": "^0.400.0",
     "next": "14.2.3",
-    "next-i18n-router": "^5.5.1",
+    "next-intl": "^3.17.2",
     "react": "^18",
     "react-dom": "^18",
-    "react-i18next": "^15.0.0",
     "stripe": "^15.8.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"
