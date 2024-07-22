@@ -4,7 +4,7 @@
 
   @layer base {
     :root {
-      --background: 0 0% 85%;
+      --background: 0 0% 100%;
       --foreground: 20 14.3% 4.1%;
 
       --card: 0 0% 100%;
@@ -97,6 +97,7 @@
     -webkit-text-fill-color: black !important;
   }
 
+
   .dropdown {
     position: relative;
     display: inline-block;
@@ -121,16 +122,20 @@
   }
   
   .dropdown-content {
-    display: none;
+    transition: all 0.5s ease-in-out;
+    display: block;
     position: absolute;
+    right: 0;
     background-color: #fff;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     border-radius: 8px;
     z-index: 1;
+    margin-top: 10%;
   }
   
   .dropdown-content button {
+    transition: all 0.2s ease-in-out;
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -139,13 +144,9 @@
     font-weight: 600;
     width: 100%;
     text-align: left;
+    border-radius: 8px;
   }
   
   .dropdown-content button:hover {
     background-color: #f1f1f1;
-    border-radius: 8px;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
   }

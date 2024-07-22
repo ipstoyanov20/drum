@@ -93,10 +93,11 @@ function Works() {
 									>
 										<Image
 											src={item.imgSrc.src}
-											className="object-contain max-w-full max-h-full"
+											className="object-contain"
 											alt=""
 											width={600}
 											height={500}
+											style={{ width: 'auto', height: 'auto' }}
 										/>
 									</div>
 								))}

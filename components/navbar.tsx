@@ -1,61 +1,74 @@
 "use client";
 import React, { useState } from 'react';
 import LanguageSwitcher from './lang-switcher';
+import Image from 'next/image';
+import logo from '../public/logo.png';
+import Link from 'next/link';
+import { useLocale } from 'next-intl';
+
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const localeActive = useLocale();
 
-  // Simple modal component for the menu
-  const MenuModal = () => (
-		<div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-start pt-10">
-			<div className="bg-white rounded-lg p-5">
-				<ul className="menu menu-vertical">
-					<li>
-						<a href="#">About me</a>
-					</li>
-					<li>
-						<a href="#">Pricing</a>
-					</li>
-					<li>
-						<details>
-							<summary>Parent</summary>
-							<ul className="bg-background rounded-t-none p-2">
-								<li>
-									<a href="#">Link 1</a>
-								</li>
-								<li>
-									<a href="#">Link 2</a>
-								</li>
-							</ul>
-						</details>
-					</li>
-					<li>
-						<LanguageSwitcher />{" "}
-					</li>
-				</ul>
-				<button
-					className="btn btn-primary mt-4"
-					onClick={() => setIsOpen(false)}
-				>
-					Close
-				</button>
-			</div>
-		</div>
-	);
+  const handleToggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-		<div className="navbar flex flex-row justify-between bg-background">
+		<div className="navbar fixed flex flex-row justify-between bg-background z-50">
 			<div className="flex-1">
-				<a className="btn btn-ghost text-xl">daisyUI</a>
+				<Link href={`/${localeActive}`} className="btn btn-ghost text-xl">
+					<Image
+						src={logo}
+						width={50}
+						height={50}
+						alt={`Logo`}
+					/>
+				</Link>
+			</div>
+			<div
+				className={`sm:hidden fixed block inset-0 bg-white backdrop-blur-sm bg-opacity-80 z-50 pt-10 transition-transform duration-1000 ${
+					isOpen ? "translate-x-0" : "translate-x-full"
+				}`}
+			>
+				<div className="bg-transparent rounded-lg p-5 flex">
+					<ul className="menu menu-vertical">
+						<li>
+							<a className="font-grotesk font-bold text-5xl" href="#">
+								GENERS
+							</a>
+						</li>
+						<li>
+							<a className="font-grotesk font-bold text-5xl" href="#">
+								HOW?
+							</a>
+						</li>
+						<li>
+							<a className="font-grotesk font-bold text-5xl" href="#">
+								ORDER
+							</a>
+						</li>
+						<li>
+							<LanguageSwitcher />{" "}
+						</li>
+					</ul>
+				</div>
+				<button
+					className="btn absolute -top-2 right-2 btn-square btn-ghost bg-[#B59861] mt-4"
+					onClick={handleToggleMenu}
+				>
+					X
+				</button>
 			</div>
 			<div className="flex-none">
 				<button
-					className="btn btn-square btn-ghost lg:hidden"
-					onClick={() => setIsOpen(!isOpen)}
+					className="btn btn-square btn-ghost bg-[#B59861] lg:hidden"
+					onClick={handleToggleMenu}
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
-						className="h-6 w-6"
+						className="h-6 w-6 transition-transform duration-300"
 						fill="none"
 						viewBox="0 0 24 24"
 						stroke="currentColor"
@@ -68,29 +81,27 @@ function Navbar() {
 						/>
 					</svg>
 				</button>
-				<span className='hidden lg:flex'>
-					<LanguageSwitcher />
-				</span>
 				<ul className="menu menu-horizontal px-1 hidden lg:flex">
 					<li>
-						<a>Link</a>
+						<a className="font-grotesk font-bold text-xl" href="#">
+							GENERS
+						</a>
 					</li>
 					<li>
-						<details>
-							<summary>Parent</summary>
-							<ul className="bg-base-100 rounded-t-none p-2">
-								<li>
-									<a>Link 1</a>
-								</li>
-								<li>
-									<a>Link 2</a>
-								</li>
-							</ul>
-						</details>
+						<a className="font-grotesk font-bold text-xl" href="#">
+							HOW?
+						</a>
+					</li>
+					<li>
+						<a className="font-grotesk font-bold text-xl" href="#">
+							ORDER
+						</a>
 					</li>
 				</ul>
+				<span className="hidden lg:flex">
+					<LanguageSwitcher />
+				</span>
 			</div>
-			{isOpen && <MenuModal />}
 		</div>
 	);
 }

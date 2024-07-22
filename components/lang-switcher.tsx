@@ -1,4 +1,5 @@
 "use client";
+import React, { useState } from "react";
 
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
@@ -8,28 +9,20 @@ export default function LanguageSwitcher() {
 	const router = useRouter();
 	const [isPending, startTransition] = useTransition();
 	const localeActive = useLocale();
+	const [isOpen, setIsOpen] = useState(false);
 
 	const handleChange = (newLocale: string) => {
 		startTransition(() => {
 			router.replace(`/${newLocale}`);
-			document.cookie = `NEXT_LOCALE=${newLocale}`;
 		});
-	};
-	const isLocaleAlreadyTheSame = (lang: string) => {
-		return (
-			document.cookie
-				.split("; ")
-				.find((row) => row.startsWith("NEXT_LOCALE="))
-				?.split("=")[1] === lang
-		);
 	};
 
 	return (
-		<div className="dropdown scale-75 sm:scale-100">
-			<button className="dropdown-button">
-				{localeActive} <span className="plus-icon">+</span>
+		<div className="dropdown mr-10">
+			<button onClick={()=>{setIsOpen(!isOpen)}} className="dropdown-button">
+				{localeActive.toUpperCase()} <span className="plus-icon">+</span>
 			</button>
-			<div className="dropdown-content">
+			<div className={`dropdown-content transition-all duration-100 ${isOpen?`opacity-100`:`opacity-0`}`}>
 				<button
 					disabled={isPending}
 					onClick={() => handleChange("en")}

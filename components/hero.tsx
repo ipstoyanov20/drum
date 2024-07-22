@@ -1,4 +1,7 @@
+import Image from 'next/image'
 import React from 'react'
+import darbuka1 from '@/public/darbuka.jpeg';
+import darbuka2 from '@/public/darbuka2.jpeg';
 
 function Hero() {
   return (
@@ -8,8 +11,10 @@ function Hero() {
 						<div className="border-2 absolute top-[95%] left-[-10%] rounded-lg bg-white border-black shadow-bottom w-48 h-10 font-grotesk font-bold grid place-content-center place-items-center">
 							<p>See on tiktok</p>
 						</div>
-						<img
-							src="darbuka.jpeg"
+						<Image
+							src={darbuka1}
+							alt='darbuk1'
+							style={{ width: 'auto', height: 'auto' }}
 							className="z-0 max-w-sm border-2 border-black shadow-bottom rounded-lg"
 						/>
 					</div>
@@ -17,8 +22,10 @@ function Hero() {
 						<div className="border-2 absolute z-10 translate-x-[120%] -translate-y-[40%] bg-white rounded-lg border-black shadow-bottom w-48 h-10 font-grotesk font-bold grid place-content-center place-items-center">
 							<p>See on tiktok</p>
 						</div>
-						<img
-							src="darbuka2.jpeg"
+						<Image
+							src={darbuka2}
+							alt='darbuka2'
+							style={{ width: 'auto', height: 'auto' }}
 							className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom absolute"
 						/>
 					</div>
