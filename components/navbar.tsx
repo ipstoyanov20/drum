@@ -1,30 +1,25 @@
 "use client";
-import React, { useState } from 'react';
-import LanguageSwitcher from './lang-switcher';
-import Image from 'next/image';
-import logo from '../public/logo.png';
-import Link from 'next/link';
-import { useLocale } from 'next-intl';
-
+import React, { useState } from "react";
+import LanguageSwitcher from "./lang-switcher";
+import Image from "next/image";
+import logo from "../public/logo.png";
+import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const localeActive = useLocale();
+	const t = useTranslations("Navbar");
+	const [isOpen, setIsOpen] = useState(false);
+	const localeActive = useLocale();
 
-  const handleToggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+	const handleToggleMenu = () => {
+		setIsOpen(!isOpen);
+	};
 
-  return (
-		<div className="navbar fixed flex flex-row justify-between bg-background z-50">
+	return (
+		<div className="navbar fixed flex flex-row justify-between bg-background z-[120]">
 			<div className="flex-1">
 				<Link href={`/${localeActive}`} className="btn btn-ghost text-xl">
-					<Image
-						src={logo}
-						width={50}
-						height={50}
-						alt={`Logo`}
-					/>
+					<Image src={logo} width={50} height={50} alt={`Logo`} />
 				</Link>
 			</div>
 			<div
@@ -36,17 +31,17 @@ function Navbar() {
 					<ul className="menu menu-vertical">
 						<li>
 							<a className="font-grotesk font-bold text-5xl" href="#">
-								GENERS
+								{t("genres")}
 							</a>
 						</li>
 						<li>
 							<a className="font-grotesk font-bold text-5xl" href="#">
-								HOW?
+								{t("how")}
 							</a>
 						</li>
 						<li>
 							<a className="font-grotesk font-bold text-5xl" href="#">
-								ORDER
+								{t("order")}
 							</a>
 						</li>
 						<li>
@@ -84,17 +79,17 @@ function Navbar() {
 				<ul className="menu menu-horizontal px-1 hidden lg:flex">
 					<li>
 						<a className="font-grotesk font-bold text-xl" href="#">
-							GENERS
+							{t("genres")}
 						</a>
 					</li>
 					<li>
 						<a className="font-grotesk font-bold text-xl" href="#">
-							HOW?
+							{t("how")}
 						</a>
 					</li>
 					<li>
 						<a className="font-grotesk font-bold text-xl" href="#">
-							ORDER
+							{t("order")}
 						</a>
 					</li>
 				</ul>

@@ -1,5 +1,37 @@
 {
-    "HomePage": {
-      "title": "Hello world!"
-    }
+  "Navbar":{
+    "genres": "GENRES",
+    "how": "HOW?",
+    "order": "ORDER"
+  },
+  "Hero": {
+    "h1-title": "MY RHYTHM",
+    "h1-br-title": "YOUR FAVORITE SONG",
+    "upper-p": "Raise the temperature with",
+    "lower-p": "Personal greetings at your request. You choose the song that is close to your heart and I will",
+    "lower-br-p": " perform it for you playing the beautiful instrument darbouka",
+    "left-button": "ORDER",
+    "right-button": "SEE REVIEWS",
+    "see-on-tiktok": "See on TikTok"
+  },
+  "Genres": {
+    "title": "GENRES",
+    "title-br": "I PLAY",
+    "bg-folk": "folk",
+    "bg-description": "I perform Bulgarian folk music with traditional rhythms and melodies that will take you back to the roots. Each performance is a journey through time, bringing the rich cultural heritage of Bulgaria to life.",
+    "pop-folk": "pop folk",
+    "pop-description": "A mix of modern and traditional sounds, pop folk music will captivate you with its dynamic rhythms and emotional lyrics. This genre combines the best of both worlds, offering a unique listening experience that is both contemporary and nostalgic.",
+    "ori": "oriental",
+    "ori-description": "Immerse yourself in the exoticism of oriental music with its rich melodies and rhythms that will transport you to the East. This genre is known for its hypnotic beats and intricate compositions, creating an atmosphere of mystery and allure.",
+    "rege": "reggaeton",
+    "rege-description": "Have fun with the energetic rhythms of reggaeton, which combines Latin and hip-hop elements for an unforgettable atmosphere. This genre is perfect for dancing and letting loose, with its infectious beats and vibrant energy.",
+    "rap": "rap",
+    "rap-description": "Think of the darbouka and rap with intense rhythms and lyrics. This genre is all about storytelling and raw expression, using powerful beats and rhymes to convey messages and emotions."
+  },
+  "Works": {
+
+  },
+  "Order": {
+
+  }
 }
