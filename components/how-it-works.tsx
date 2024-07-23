@@ -63,7 +63,7 @@ function Works() {
 	];
   return (
     <>
-        <div className="w-screen h-screen p-10 from-ex:max-to-ex:mt-[250%] mb-[10rem] mt-[300%] sm:mt-0 from-ex:max-to-ex:mb-[0%] sm:mb-[25%]">
+        <div className="w-screen h-screen p-10 from-ex:max-to-ex:mt-[280%] mb-[10rem] mt-[300%] sm:mt-0 from-ex:max-to-ex:mb-[0%] sm:mb-[25%]">
 				<h1 className="font-grotesk font-bold from-ex:max-to-ex:text-5xl text-7xl mb-5 sm:text-9xl text-center">
 					HOW IT <br /> WORKS?
 				</h1>
