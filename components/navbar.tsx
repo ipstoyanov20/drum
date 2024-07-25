@@ -23,7 +23,7 @@ function Navbar() {
 				</Link>
 			</div>
 			<div
-				className={`sm:hidden fixed block inset-0 bg-white backdrop-blur-sm bg-opacity-80 z-50 pt-10 transition-transform duration-1000 ${
+				className={`lg:hidden fixed block inset-0 bg-white backdrop-blur-sm bg-opacity-80 z-50 pt-10 transition-transform duration-1000 ${
 					isOpen ? "translate-x-0" : "translate-x-full"
 				}`}
 			>
@@ -50,7 +50,7 @@ function Navbar() {
 					</ul>
 				</div>
 				<button
-					className="btn absolute -top-2 right-2 btn-square btn-ghost bg-[#B59861] mt-4"
+					className="btn absolute top-2 right-2 btn-square btn-ghost bg-[#B59861] -ml-[max(50%,100px)]"
 					onClick={handleToggleMenu}
 				>
 					X
@@ -58,7 +58,7 @@ function Navbar() {
 			</div>
 			<div className="flex-none">
 				<button
-					className="btn btn-square btn-ghost bg-[#B59861] lg:hidden"
+					className="btn btn-square btn-ghost bg-[#B59861] lg:hidden mt-0 -ml-[max(50%,calc(50px-50%))]"
 					onClick={handleToggleMenu}
 				>
 					<svg
