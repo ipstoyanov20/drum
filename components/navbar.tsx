@@ -50,7 +50,7 @@ function Navbar() {
 					</ul>
 				</div>
 				<button
-					className="btn absolute top-2 right-2 btn-square btn-ghost bg-[#B59861] -ml-[max(50%,100px)]"
+					className="btn absolute top-2 right-2 btn-square btn-ghost bg-[#B59861]"
 					onClick={handleToggleMenu}
 				>
 					X
