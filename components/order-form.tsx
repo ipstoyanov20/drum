@@ -33,9 +33,9 @@ function OrderForm() {
 	return (
 		<form
 			onSubmit={handleSubmit}
-			className="w-full sm:w-1/2 h-full p-5 sm:p-10 from-ex:max-to-ex:mt-[-20%] mt-[0%] sm:mt-0 from-ex:max-to-ex:mb-[20%]"
+			className="w-full h-full p-5 sm:p-10 from-ex:max-to-ex:mt-[-20%] mt-[0%] sm:mt-0 from-ex:max-to-ex:mb-[20%]"
 		>
-			<div className="flex  flex-col sm:flex-row gap-0 sm:gap-5">
+			<div className="flex flex-col sm:flex-row gap-0 sm:gap-5 w-full">
 				<div className="mb-4">
 					<label
 						htmlFor="email"

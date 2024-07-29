@@ -94,7 +94,7 @@ const config = {
         },
       },
       animation: {
-        'blob': 'blob 10s ease-in-out infinite',
+        'blob': 'blob 4s ease-in-out infinite',
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "spin-slow": "spin-slow 5s linear infinite",
