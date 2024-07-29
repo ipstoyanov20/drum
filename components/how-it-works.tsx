@@ -69,7 +69,7 @@ function Works() {
 				</h1>
 				<div className="grid place-content-center place-items-center">
 					<ul className="grid relative h-[80vh] place-items-center place-content-center grid-rows-[250px,450px] grid-cols-1 sm:grid-rows-1 sm:grid-cols-2 gap-x-48 sm:max-md:gap-x-[90%] sm:max-md:scale-[55%] md:max-lg:gap-x-[60%] md:max-lg:scale-[65%] ">
-						<div className="relative sm:max-md:scale-[85%] md:max-lg:scale-[90%] sm:ml-0 sm:mt-0 scale-[40%] z-0 shadow-bottom w-[600px] h-[500px] rounded-t-[5%] rounded-b-[5%] border-2 border-black ">
+						<div className="relative sm:max-md:scale-[85%] md:max-lg:scale-[90%] sm:ml-0 sm:mt-0 scale-[40%] lg:scale-100 z-0 shadow-bottom w-[600px] h-[500px] rounded-t-[5%] rounded-b-[5%] border-2 border-black ">
 							<img
 								src={blobImg.src}
 								className="absolute -top-[30%] -left-[38%] scale-50 opacity-90"
@@ -105,7 +105,7 @@ function Works() {
 								</span>
 							</div>
 						</div>
-						<div className="my-10 grid place-items-center place-content-center grid-cols-2 sm:grid-cols-1 grid-rows-2 sm:grid-rows-4 from-ex:max-to-ex:gap-x-52 scale-[60%] sm:scale-100 gap-x-48 sm:gap-y-5 sm:gap-x-0">
+						<div className="my-10 grid place-items-center place-content-center grid-cols-2 sm:grid-cols-1 grid-rows-2 sm:grid-rows-4 from-ex:max-to-ex:gap-x-52 scale-[60%] sm:scale-[80%] gap-x-48 sm:gap-y-0 sm:gap-x-0">
 							{items.map((item, index) => (
 								<li
 									key={item.id}
@@ -127,7 +127,7 @@ function Works() {
 										onChange={() => {}} // Add an onChange to suppress React warning about uncontrolled components turning into controlled
 									/>
 									<div
-										className={`flex flex-col mb-[-20px] ${
+										className={`flex flex-col ${
 											selectedItem !== null && selectedItem !== index
 												? "opacity-50"
 												: "opacity-100"
