@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 import { db } from "@/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
+import { useRouter } from "next/router";
 function OrderForm() {
+	// const router = useRouter();
 	async function AddData(data: any) {
 		try {
 			const docRef = await addDoc(collection(db, "orders"), {
@@ -18,7 +20,7 @@ function OrderForm() {
 			return false;
 		}
 	}
-	const handleSubmit = (event: any) => {
+	const handleSubmit = async (event: any) => {
 		event.preventDefault();
 
 		const formData = new FormData(event.target);
@@ -27,7 +29,12 @@ function OrderForm() {
 		const phone = formData.get("phone");
 		const ytlink = formData.get("YTlink");
 		const additionalInfo = formData.get("additionalInfo");
-		const added = AddData({ email, phone, ytlink, additionalInfo });
+		const added = await AddData({ email, phone, ytlink, additionalInfo });
+
+		if (added) {
+			window.location.replace("https://buy.stripe.com/test_6oE15C5HO9VgglabII");
+		}
+
 		event.target.reset();
 	};
 	return (

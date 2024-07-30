@@ -9,7 +9,7 @@ function Hero() {
 	return (
 		<div className="grid place-items-start place-content-start sm:place-content-center bg-background h-auto w-auto mt-28">
 			<div className="flex-col">
-				<div className="top-[40%] left-[5%] lg:-left-[5%] absolute lg:scale-[50%] lg:block hidden opacity-80">
+				<div className="top-[40%] left-[5%] lg:max-xl:-left-[5%] absolute lg:max-xl:scale-[60%] xl:max-2xl:scale-75 lg:block hidden opacity-80">
 					<div className="border-2 absolute top-[95%] left-[-10%] rounded-lg bg-white border-black shadow-bottom w-48 h-10 font-grotesk font-bold grid place-content-center place-items-center">
 						<p>{t("see-on-tiktok")}</p>
 					</div>
@@ -20,7 +20,7 @@ function Hero() {
 						className="z-0 max-w-sm border-2 border-black shadow-bottom rounded-lg"
 					/>
 				</div>
-				<div className="top-[15%] left-[75%] absolute lg:scale-[50%] lg:block hidden opacity-80">
+				<div className="top-[15%] left-[75%] absolute lg:max-xl:scale-[60%] xl:max-2xl:scale-75 lg:block hidden opacity-80">
 					<div className="border-2 absolute z-10 translate-x-[120%] -translate-y-[40%] bg-white rounded-lg border-black shadow-bottom w-48 h-10 font-grotesk font-bold grid place-content-center place-items-center">
 						<p>{t("see-on-tiktok")}</p>
 					</div>
@@ -32,7 +32,7 @@ function Hero() {
 					/>
 				</div>
 
-				<div className="grid place-items-center place-content-start w-full">
+				<div className="grid place-items-center place-content-end w-full h-full mt-0 sm:mt-28">
 					<p className="font-bold text-[#B59861] text-xl hidden sm:block">
 						{t("upper-p").toUpperCase()}
 					</p>
