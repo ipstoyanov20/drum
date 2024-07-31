@@ -10,8 +10,15 @@ const stripePromise = loadStripe(
 
 function OrderForm() {
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [locale, setLocale] = useState('bg'); // Default locale
 
     useEffect(() => {
+
+         // Extract locale from the URL path
+         const pathLocale = window.location.pathname.split("/").pop();
+         if (pathLocale) {
+             setLocale(pathLocale);
+         }
         // Check to see if this is a redirect back from Checkout
         const query = new URLSearchParams(window.location.search);
         if (query.get("success")) {
@@ -128,6 +135,7 @@ function OrderForm() {
                     className="mt-1 block w-full px-4 py-3 bg-transparent rounded-md border-black border-2 shadow-bottom"
                 ></textarea>
             </div>
+            <input type="hidden" name="locale" value={locale} />
             <button
                 type="submit"
                 role="link"
