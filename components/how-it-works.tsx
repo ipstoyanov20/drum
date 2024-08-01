@@ -121,7 +121,7 @@ function Works() {
 										<h2 className="font-grotesk font-bold text-xl translate-y-[-80%] py-2 mb-10 sm:mb-5">
 											{t(`${key}.subtitle`)}
 										</h2>
-										<p className="p-0 translate-y-[-50%] w-[min(200px,24rem)] sm:w-96">
+										<p className="p-0 translate-y-[-50%] h-[100px] w-[min(200px,24rem)] sm:w-96 mb-16 sm:mb-0">
 											{t(`${key}.description`)}
 										</p>
 									</div>
