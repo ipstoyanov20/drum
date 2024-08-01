@@ -13,8 +13,8 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "BgDrummer",
-  description: "Custom Greetings from the master",
+  title: "BG Drummer",
+  description: "Custom Greetings from the MASTER",
 };
 
 export default async function RootLayout({

@@ -29,9 +29,35 @@
     "rap-description": "Think of the darbouka and rap with intense rhythms and lyrics. This genre is all about storytelling and raw expression, using powerful beats and rhymes to convey messages and emotions."
   },
   "Works": {
-
-  },
+		"title": "how it",
+		"title-br": "works?",
+		"1": {
+			"title": "04",
+			"subtitle": "CHOOSE",
+			"description": "Discover the best products tailored just for you. Select from our wide range of options and find exactly what you need."
+		},
+		"2": {
+			"title": "04",
+			"subtitle": "SEND & ORDER",
+			"description": "Easily place your order with our user-friendly interface. Experience a seamless ordering process from start to finish."
+		},
+		"3": {
+			"title": "04",
+			"subtitle": "PAY",
+			"description": "Secure and hassle-free payment options. Your transactions are protected with the highest level of security."
+		},
+		"4": {
+			"title": "04",
+			"subtitle": "RECEIVE",
+      "description": "Fast and reliable delivery. Receive your custom darbuka video through a private YouTube link sent to you via email."
+    }
+	},
   "Order": {
-
+    "title": "ORDER",
+    "email": "Email",
+    "phone": "Phone",
+    "ytlink": "YouTube link for the song",
+    "instructions": "Instructions",
+    "button": "ORDER & PAY"
   }
 }

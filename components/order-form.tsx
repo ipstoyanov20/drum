@@ -3,12 +3,15 @@ import React, { useEffect, useState } from "react";
 import { db } from "@/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 import { loadStripe } from "@stripe/stripe-js";
+import { useTranslations } from "next-intl";
 
 const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string,
 );
 
 function OrderForm() {
+    const t = useTranslations('Order');
+
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [locale, setLocale] = useState('bg'); // Default locale
 
@@ -78,9 +81,9 @@ function OrderForm() {
                 <div className="mb-4">
                     <label
                         htmlFor="email"
-                        className="block text-sm font-grotesk text-gray-700"
+                        className="block text-sm font-grotesk font-bold text-gray-700"
                     >
-                        Email
+                        {t('email')}
                     </label>
                     <input
                         type="email"
@@ -88,14 +91,14 @@ function OrderForm() {
                         id="email"
                         required
                         className="mt-1 block w-full px-4 py-3 bg-transparent shadow-bottom rounded-md border-black border-2"
-                    />
+                        />
                 </div>
                 <div className="mb-4">
                     <label
                         htmlFor="phone"
-                        className="block text-sm font-grotesk text-gray-700"
-                    >
-                        Phone Number
+                        className="block text-sm font-grotesk font-bold text-gray-700"
+                        >
+                        {t('phone')}
                     </label>
                     <input
                         type="tel"
@@ -103,15 +106,15 @@ function OrderForm() {
                         id="phone"
                         required
                         className="mt-1 block w-full px-4 py-3 bg-transparent  rounded-md border-black border-2 shadow-bottom"
-                    />
+                        />
                 </div>
             </div>
             <div className="mb-4 flex-1">
                 <label
                     htmlFor="YTlink"
-                    className="block text-sm font-grotesk text-gray-700"
-                >
-                    Youtube link for a song
+                    className="block text-sm font-grotesk font-bold text-gray-700"
+                    >
+                    {t('ytlink')}
                 </label>
                 <input
                     type="text"
@@ -119,14 +122,14 @@ function OrderForm() {
                     id="YTlink"
                     required
                     className="mt-1 block w-full px-4 py-3 bg-transparent rounded-md border-black border-2 shadow-bottom"
-                />
+                    />
             </div>
             <div className="mb-4">
                 <label
                     htmlFor="additionalInfo"
-                    className="block text-sm font-grotesk text-gray-700"
-                >
-                    Additional Information
+                    className="block text-sm font-grotesk font-bold text-gray-700"
+                    >
+                    {t('instructions')}
                 </label>
                 <textarea
                     name="additionalInfo"
@@ -142,7 +145,7 @@ function OrderForm() {
 				disabled={isSubmitting}
                 className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#B59861] hover:bg-[#B59861]/90 transition-all duration-100"
             >
-                {isSubmitting ? "Loading..." : "SUBMIT & PAY"}
+                {isSubmitting ? "Loading..." : t('button')}
             </button>
         </form>
     );
