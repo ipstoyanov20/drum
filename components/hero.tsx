@@ -19,7 +19,7 @@ function Hero() {
 		let chars = document.querySelectorAll(".char");
 
 		for (let i = 0; i < chars.length; i++) {
-			chars[i].classList.add("translate-y-[200%]");
+			chars[i].classList.add("translate-y-[280%]");
 		}
 
 		gsap.to(".char", {
@@ -27,6 +27,7 @@ function Hero() {
 			stagger: 0.05,
 			duration: 0.5,
 			opacity: 1,
+			delay: 0.5,
 		});
 	}, []);
 	return (
