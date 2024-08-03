@@ -1,11 +1,34 @@
+"use client"
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import darbuka1 from "@/public/darbuka.jpeg";
 import darbuka2 from "@/public/darbuka2.jpeg";
 import { useTranslations } from "next-intl";
-
+import { gsap } from 'gsap';
+import SplitType from 'split-type'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function Hero() {
 	const t = useTranslations("Hero");
+	const titleRef = useRef(null);
+	const titleBrRef = useRef(null);
+	useEffect(() => {
+		AOS.init();
+		titleRef.current ? new SplitType(titleRef.current) : null;
+		titleBrRef.current ? new SplitType(titleBrRef.current) : null;
+		let chars = document.querySelectorAll(".char");
+
+		for (let i = 0; i < chars.length; i++) {
+			chars[i].classList.add("translate-y-[200%]");
+		}
+
+		gsap.to(".char", {
+			y: 0,
+			stagger: 0.05,
+			duration: 0.5,
+			opacity: 1,
+		});
+	}, []);
 	return (
 		<div className="grid place-items-start place-content-start sm:place-content-center bg-background h-auto w-auto mt-28">
 			<div className="flex-col">
@@ -32,12 +55,15 @@ function Hero() {
 					/>
 				</div>
 
-				<div className="grid place-items-center place-content-end w-full h-full mt-0 sm:mt-28">
+				<div data-aos="fade-up" className="grid place-items-center place-content-end w-full h-full mt-0 sm:mt-28">
 					<p className="font-bold text-[#B59861] text-xl hidden sm:block">
 						{t("upper-p").toUpperCase()}
 					</p>
-					<h1 className="z-[10] px-[min(50px,10rem)] from-ex:max-to-ex:text-5xl text-7xl font-bold sm:font-bold text-left font-grotesk sm:text-center sm:text-9xl">
-						{t("h1-title")} <br /> {t("h1-br-title")}
+					<h1 ref={titleRef} className="z-[10] overflow-hidden px-[min(50px,10rem)] m-0 w-full from-ex:max-to-ex:text-5xl text-7xl font-bold sm:font-bold text-left font-grotesk sm:text-center sm:text-9xl">
+						{t("h1-title")}
+					</h1>
+					<h1  ref={titleBrRef}  className="z-[10] overflow-hidden px-[min(50px,10rem)] m-0 w-full from-ex:max-to-ex:text-5xl text-7xl font-bold sm:font-bold text-left font-grotesk sm:text-center sm:text-9xl">
+						{t("h1-br-title")}
 					</h1>
 					<p className="m-5 grid px-[min(50px,10rem)] w-full place-content-center text-left sm:text-center from-ex:max-to-ex:text-sm text-lg text-[#B59861] sm:text-base">
 						{t("lower-p")}
