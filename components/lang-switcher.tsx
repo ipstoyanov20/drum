@@ -22,7 +22,7 @@ export default function LanguageSwitcher() {
 			<button onClick={()=>{setIsOpen(!isOpen)}} className="dropdown-button">
 				{localeActive.toUpperCase()} <span className="plus-icon">+</span>
 			</button>
-			<div className={`dropdown-content transition-all duration-100 ${isOpen?`opacity-100`:`opacity-0`}`}>
+			<div className={`dropdown-content transition-all duration-100 ${isOpen?`opacity-100 visible`:`opacity-0 invisible`}`}>
 				<button
 					disabled={isPending}
 					onClick={() => handleChange("en")}

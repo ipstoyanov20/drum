@@ -8,7 +8,11 @@ import { gsap } from 'gsap';
 import SplitType from 'split-type'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useLocale } from "next-intl";
+
 function Hero() {
+	const locale = useLocale();
+	const isBg = locale === "bg";
 	const t = useTranslations("Hero");
 	const titleRef = useRef(null);
 	const titleBrRef = useRef(null);
@@ -19,7 +23,7 @@ function Hero() {
 		let chars = document.querySelectorAll(".char");
 
 		for (let i = 0; i < chars.length; i++) {
-			chars[i].classList.add("translate-y-[280%]");
+			chars[i].classList.add("translate-y-[300%]");
 		}
 
 		gsap.to(".char", {
@@ -60,10 +64,10 @@ function Hero() {
 					<p className="font-bold text-[#B59861] text-xl hidden sm:block">
 						{t("upper-p").toUpperCase()}
 					</p>
-					<h1 ref={titleRef} className="z-[10] overflow-hidden px-[min(50px,10rem)] m-0 w-full from-ex:max-to-ex:text-5xl text-7xl font-bold sm:font-bold text-left font-grotesk sm:text-center sm:text-9xl">
+					<h1 ref={titleRef} className={`z-[10] overflow-hidden px-[min(50px,10rem)] m-0 w-full from-ex:max-to-ex:${isBg ? 'text-4xl' : 'text-5xl'} text-7xl font-bold sm:font-bold text-left font-grotesk sm:text-center sm:text-9xl`}>
 						{t("h1-title")}
 					</h1>
-					<h1  ref={titleBrRef}  className="z-[10] overflow-hidden px-[min(50px,10rem)] m-0 w-full from-ex:max-to-ex:text-5xl text-7xl font-bold sm:font-bold text-left font-grotesk sm:text-center sm:text-9xl">
+					<h1  ref={titleBrRef}  className={`z-[10] overflow-hidden px-[min(50px,10rem)] m-0 w-full from-ex:max-to-ex:${isBg ? 'text-4xl' : 'text-5xl'} text-7xl font-bold sm:font-bold text-left font-grotesk sm:text-center sm:text-9xl`}>
 						{t("h1-br-title")}
 					</h1>
 					<p className="m-5 grid px-[min(50px,10rem)] w-full place-content-center text-left sm:text-center from-ex:max-to-ex:text-sm text-lg text-[#B59861] sm:text-base">

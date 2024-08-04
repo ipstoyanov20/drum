@@ -8,10 +8,12 @@ import Image from "next/image";
 import React from "react";
 import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 
 function Works() {
 	const t = useTranslations("Works");
-
+	const locale = useLocale();
+	const isBg = locale === "bg";
 	const [selectedItem, setSelectedItem] = useState<number | null>(0);
 	const [positionLeft, setPositionLeft] = useState<number>(150);
 	const keys = ["1", "2", "3", "4"] as const;
@@ -46,11 +48,11 @@ function Works() {
 	return (
 		<>
 			<div className="w-screen h-auto p-10">
-				<h1 className="font-grotesk font-bold from-ex:max-to-ex:text-5xl text-7xl mb-5 md:text-9xl text-center">
+				<h1 data-aos="fade-up" className={`font-grotesk font-bold from-ex:max-to-ex:${isBg ? 'text-4xl' : 'text-5xl'} text-7xl mb-[max(80px,2rem)] md:text-9xl text-center`}>
 					{t('title').toUpperCase()} <br /> {t('title-br').toUpperCase()} 
 				</h1>
 				<div className="grid place-content-center place-items-center">
-					<ul className="grid relative h-[80vh] place-items-center place-content-center grid-rows-[250px,450px] grid-cols-1 sm:grid-rows-1 sm:grid-cols-2 gap-x-48 sm:max-md:gap-x-[90%] sm:max-md:scale-[55%] md:max-lg:gap-x-[60%] md:max-lg:scale-[65%] ">
+					<ul data-aos="fade-up" className="grid relative h-[80vh] place-items-center place-content-center grid-rows-[250px,450px] grid-cols-1 sm:grid-rows-1 sm:grid-cols-2 gap-x-48 sm:max-md:gap-x-[90%] sm:max-md:scale-[55%] md:max-lg:gap-x-[60%] md:max-lg:scale-[65%] ">
 						<div className="relative sm:max-md:scale-[85%] md:max-lg:scale-[90%] sm:ml-0 sm:mt-0 scale-[40%] lg:scale-100 z-0 shadow-bottom w-[600px] h-[500px] rounded-t-[5%] rounded-b-[5%] border-2 border-black ">
 							<img
 								src={blobImg.src}

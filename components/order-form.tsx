@@ -72,6 +72,7 @@ function OrderForm() {
 
     return (
         <form
+            data-aos="fade-left"
             action="/api/checkout_sessions"
             method="POST"
             onSubmit={handleSubmit}
