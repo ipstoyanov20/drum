@@ -14,9 +14,7 @@ function Order() {
 		<>
 			<h1
 				data-aos="fade-up"
-				className={`font-grotesk mb-10 font-bold from-ex:max-to-ex:${
-					isBg ? "text-4xl" : "text-5xl"
-				} text-7xl md:text-9xl text-center`}
+				className={`font-grotesk mb-10 font-bold from-ex:max-to-ex:text-4xl ${isBg ? 'text-5xl' : 'text-6xl'} md:text-9xl text-center`}
 			>
 				{t("title")}
 			</h1>

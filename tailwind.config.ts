@@ -72,8 +72,8 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       screens: {
-        'from-ex':'200px',
-        'to-ex':'430px',
+        'from-ex':'320px',
+        'to-ex':'326px',
       },
       keyframes: {
         blob: {

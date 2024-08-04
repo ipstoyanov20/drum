@@ -9,7 +9,7 @@ function Genres() {
 	return (
 		<div className="bg-background h-auto w-screen mt-[10rem]">
 			<div className="grid place-items-center place-content-start w-screen h-full px-10 py-0 flex-col lg:flex-row md:mt-0">
-				<h1 data-aos="fade-up" className={`font-grotesk font-bold from-ex:max-to-ex:${isBg ? 'text-4xl' : 'text-5xl'} text-7xl md:text-9xl text-center`}>
+				<h1 data-aos="fade-up" className={`font-grotesk font-bold from-ex:max-to-ex:text-4xl ${isBg ? 'text-5xl' : 'text-6xl'} md:text-9xl text-center`}>
 					<span className="text-[#B59861] m-0">{t("title")}</span> <br />{" "}
 					{t("title-br")}
 				</h1>
