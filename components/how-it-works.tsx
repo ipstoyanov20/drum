@@ -46,9 +46,9 @@ function Works() {
 		},
 	];
 	return (
-		<>
+		<span id="how" className="p-5">
 			<div className="w-screen h-auto p-10">
-				<h1 data-aos="fade-up" className={`font-grotesk font-bold from-ex:max-to-ex:text-4xl ${isBg ? 'text-5xl' : 'text-6xl'} mb-[max(80px,2rem)] md:text-9xl text-center`}>
+				<h1  data-aos="fade-up" className={`font-grotesk font-bold from-ex:max-to-ex:text-4xl ${isBg ? 'text-5xl' : 'text-6xl'} mb-[max(80px,2rem)] md:text-9xl text-center`}>
 					{t('title').toUpperCase()} <br /> {t('title-br').toUpperCase()} 
 				</h1>
 				<div className="grid place-content-center place-items-center">
@@ -133,7 +133,7 @@ function Works() {
 					</ul>
 				</div>
 			</div>
-		</>
+		</span>
 	);
 }
 

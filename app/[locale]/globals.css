@@ -102,6 +102,23 @@
     position: relative;
     display: inline-block;
   }
+    .menu li>*:not(ul, .menu-title, details, .btn):active,
+    .menu li>*:not(ul, .menu-title, details, .btn).active,
+    .menu li>details>summary:active {
+      --tw-bg-opacity: 1;
+      background-color: transparent;
+      --tw-text-opacity: 1;
+      color: black;
+    }
+  
+    .menu li>*:not(ul, .menu-title, details, .dropdown):hover,
+    .menu li>*:not(ul, .menu-title, details, .dropdown).active,
+    .menu li>details>summary:hover {
+      --tw-bg-opacity: 1;
+      background-color: #B59861;
+      --tw-text-opacity: 1;
+      color: white !important;
+    }
   
   .dropdown-button {
     background-color: #B59861;
@@ -133,6 +150,12 @@
     z-index: 1;
     margin-top: 10%;
   }
+  @media (max-width: 1024px) { /* lg breakpoint is typically 1024px */
+    .dropdown-content {
+        right: auto;
+        left: auto;
+    }
+}
   
   .dropdown-content button {
     transition: all 0.2s ease-in-out;
@@ -150,4 +173,6 @@
   .dropdown-content button:hover {
     background-color: #f1f1f1;
   }
-  
+  html {
+    scroll-behavior: smooth;
+  }
