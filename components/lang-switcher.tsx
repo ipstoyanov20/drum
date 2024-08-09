@@ -16,24 +16,13 @@ export default function LanguageSwitcher() {
 			router.replace(`/${newLocale}`);
 		});
 	};
-	useEffect(() => {
-		const handleClickOutside = (event: MouseEvent) => {
-			const target = event.target as Element;
-			if (target && !target.closest('.dropdown')) {
-				setIsOpen(false);
-			}
-		};
-        document.addEventListener('click', handleClickOutside);
-        return () => {
-            document.removeEventListener('click', handleClickOutside);
-        };
-    }, []);
+	
 	return (
 		<div className="dropdown mr-10">
 			<button onClick={()=>{setIsOpen(!isOpen)}} className="dropdown-button">
 				{localeActive.toUpperCase()} <span className="plus-icon">+</span>
 			</button>
-			<div className={`dropdown-content transition-all duration-100 ${isOpen ? `opacity-100 visible`:`opacity-0 invisible`}`}>
+			<div className={`dropdown-content transition-all duration-100 ${isOpen ? `block opacity-100 visible`:` hidden opacity-0 invisible`}`}>
 				<button
 					disabled={isPending}
 					onClick={() => handleChange("en")}
