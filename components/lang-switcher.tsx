@@ -28,8 +28,7 @@ export default function LanguageSwitcher() {
 				{localeActive.toUpperCase()} <span className="plus-icon">+</span>
 			</button>
 			<div
-				className={`dropdown-content`}
-				style={{ transition: "all 0.2s ease-in-out", opacity: isOpen ? "1" : "0" }}
+				className={`dropdown-content ${isOpen ? 'block' : 'hidden'}`}
 				role="menu"
 			>
 				<button
