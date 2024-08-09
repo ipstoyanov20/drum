@@ -102,24 +102,25 @@
     position: relative;
     display: inline-block;
   }
-    .menu li>*:not(ul, .menu-title, details, .btn):active,
-    .menu li>*:not(ul, .menu-title, details, .btn).active,
-    .menu li>details>summary:active {
-      --tw-bg-opacity: 1;
-      background-color: transparent;
-      --tw-text-opacity: 1;
-      color: black;
-    }
-  
-    .menu li>*:not(ul, .menu-title, details, .dropdown):hover,
-    .menu li>*:not(ul, .menu-title, details, .dropdown).active,
-    .menu li>details>summary:hover {
-      --tw-bg-opacity: 1;
-      background-color: #B59861;
-      --tw-text-opacity: 1;
-      color: white !important;
-    }
-  
+
+  .menu li>*:not(ul, .menu-title, details, .btn):active,
+  .menu li>*:not(ul, .menu-title, details, .btn).active,
+  .menu li>details>summary:active {
+    --tw-bg-opacity: 1;
+    background-color: transparent;
+    --tw-text-opacity: 1;
+    color: black;
+  }
+
+  .menu li>*:not(ul, .menu-title, details, .dropdown):hover,
+  .menu li>*:not(ul, .menu-title, details, .dropdown).active,
+  .menu li>details>summary:hover {
+    --tw-bg-opacity: 1;
+    background-color: #B59861;
+    --tw-text-opacity: 1;
+    color: white !important;
+  }
+
   .dropdown-button {
     background-color: #B59861;
     color: white;
@@ -132,12 +133,12 @@
     display: flex;
     align-items: center;
   }
-  
+
   .plus-icon {
     margin-left: 8px;
     font-size: 20px;
   }
-  
+
   .dropdown-content {
     transition: all 0.5s ease-in-out;
     display: block;
@@ -145,18 +146,31 @@
     right: 0;
     background-color: #fff;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     z-index: 1;
     margin-top: 10%;
   }
-  @media (max-width: 1024px) { /* lg breakpoint is typically 1024px */
+
+  @media (max-width: 1024px) {
+
+    /* lg breakpoint is typically 1024px */
     .dropdown-content {
-        right: auto;
-        left: auto;
+      right: auto;
+      left: auto;
     }
-}
-  
+  }
+
+  .dropdown-content button:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .dropdown-content button:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
   .dropdown-content button {
     transition: all 0.2s ease-in-out;
     color: black;
@@ -167,12 +181,13 @@
     font-weight: 600;
     width: 100%;
     text-align: left;
-    border-radius: 8px;
   }
-  
+
   .dropdown-content button:hover {
-    background-color: #f1f1f1;
+    background-color: #B59861;
+    color: white;
   }
+
   html {
     scroll-behavior: smooth;
   }

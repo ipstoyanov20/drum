@@ -16,7 +16,18 @@ export default function LanguageSwitcher() {
 			router.replace(`/${newLocale}`);
 		});
 	};
-		
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			const target = event.target as Element;
+			if (target && !target.closest('.dropdown')) {
+				setIsOpen(false);
+			}
+		};
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
 	return (
 		<div className="dropdown mr-10">
 			<button onClick={()=>{setIsOpen(!isOpen)}} className="dropdown-button">
