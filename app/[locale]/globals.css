@@ -146,32 +146,33 @@
     right: 0;
     background-color: #fff;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     z-index: 100;
     margin-top: 10%;
   }
 
   @media (max-width: 1024px) {
-
-    /* lg breakpoint is typically 1024px */
     .dropdown-content {
       right: auto;
-      left: auto;
+      left: 0;
     }
   }
 
-  .dropdown-content button:first-child {
+  .dropdown-content li:first-child>a {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
   }
 
-  .dropdown-content button:last-child {
+  .dropdown-content li:last-child>a {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
   }
 
-  .dropdown-content button {
+  .dropdown-content li {
+    border: none !important;
+  }
+
+  .dropdown-content a {
     transition: all 0.2s ease-in-out;
     color: black;
     padding: 12px 16px;
@@ -183,9 +184,10 @@
     text-align: left;
   }
 
-  .dropdown-content button:hover {
+  .dropdown-content a:hover {
     background-color: #B59861;
     color: white;
+    border:none
   }
 
   html {
