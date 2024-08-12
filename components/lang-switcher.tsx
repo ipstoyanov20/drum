@@ -19,7 +19,7 @@ export default function LanguageSwitcher() {
 
 	return (
 		<details className="dropdown relative w-28">
-			<summary className="dropdown-button ml-5 mt-2 select-none">
+			<summary className="dropdown-button ml-5 lg:-translate-x-5 translate-x-0 mt-2 lg:mt-0 select-none">
 				{localeActive.toUpperCase()} <span className="plus-icon">+</span>
 			</summary>
 			<ul className="mt-5 dropdown-content absolute right-0 bg-white text-black rounded-box z-[1] w-52 p-0 shadow">

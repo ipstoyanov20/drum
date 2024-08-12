@@ -1,3 +1,6 @@
+import "@fortawesome/fontawesome-svg-core/styles.css"
+import {config} from "@fortawesome/fontawesome-svg-core"
+config.autoAddCss = false
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";

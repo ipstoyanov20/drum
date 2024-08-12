@@ -9,7 +9,11 @@ import SplitType from 'split-type'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useLocale } from "next-intl";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTiktok,
+  faInstagram
+} from "@fortawesome/free-brands-svg-icons";
 function Hero() {
 	const locale = useLocale();
 	const isBg = locale === "bg";
@@ -60,31 +64,87 @@ function Hero() {
 					/>
 				</div>
 
-				<div data-aos="fade-up" className="grid place-items-center place-content-end w-full h-full mt-0 sm:mt-28">
+				<div
+					data-aos="fade-up"
+					className="grid place-items-center place-content-end w-full h-full mt-0 sm:mt-28"
+				>
 					<p className="font-bold text-[#B59861] text-xl hidden sm:block">
 						{t("upper-p").toUpperCase()}
 					</p>
-					<h1 ref={titleRef} className={`z-[10] overflow-hidden px-[min(50px,10rem)] m-0 w-full sm:max-[705px]:text-8xl from-ex:max-to-ex:text-4xl ${isBg ? 'text-5xl' : 'text-6xl'} font-bold sm:font-bold text-left font-grotesk sm:text-center sm:text-9xl`}>
+					<h1
+						ref={titleRef}
+						className={`z-[10] overflow-hidden px-[min(50px,10rem)] m-0 w-full sm:max-[705px]:text-8xl from-ex:max-to-ex:text-4xl ${
+							isBg ? "text-5xl" : "text-6xl"
+						} font-bold sm:font-bold text-left font-grotesk sm:text-center sm:text-9xl`}
+					>
 						{t("h1-title")}
 					</h1>
-					<h1  ref={titleBrRef}  className={`z-[10] overflow-hidden px-[min(50px,10rem)] m-0 w-full sm:max-[705px]:text-8xl from-ex:max-to-ex:text-4xl ${isBg ? 'text-5xl' : 'text-6xl'} font-bold sm:font-bold text-left font-grotesk sm:text-center sm:text-9xl`}>
+					<h1
+						ref={titleBrRef}
+						className={`z-[10] overflow-hidden px-[min(50px,10rem)] m-0 w-full sm:max-[705px]:text-8xl from-ex:max-to-ex:text-4xl ${
+							isBg ? "text-5xl" : "text-6xl"
+						} font-bold sm:font-bold text-left font-grotesk sm:text-center sm:text-9xl`}
+					>
 						{t("h1-br-title")}
 					</h1>
 					<p className="m-5 grid px-[min(50px,10rem)] w-full place-content-center text-left sm:text-center from-ex:max-to-ex:text-sm text-lg text-[#B59861] sm:text-base">
 						{t("lower-p")}
 						<br className="lg:block hidden " />
 						{t("lower-br-p")}
-						<span className="grid-col-1 relative grid-rows-2 place-content-center grid sm:hidden sm:grid-cols-2 gap-0 w-full mt-[min(20px,5rem)]">
-							<button className="ml-0 after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg absolute w-full h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] rounded-sm px-4 py-3 mb-0 sm:m-3 bg-[#B59861] text-[#f3ecdd] font-bold font-grotesk ">
+						<span className="grid-col-1 relative grid-rows-3 place-content-center grid sm:hidden sm:grid-cols-2 gap-0 w-full mt-[min(20px,5rem)]">
+							<i
+								data-aos="fade-up"
+								data-aos-delay="1000"
+								className="grid absolute sm:hidden grid-flow-col pb-10 left-0 gap-2 w-auto"
+							>
+								<a
+									href="https://www.tiktok.com/@stoyanoviv"
+									target="_blank"
+									className="social text-black"
+								>
+									<FontAwesomeIcon icon={faTiktok} size="2x" />
+								</a>
+								<a
+									href="https://www.instagram.com"
+									target="_blank"
+									className="social text-black"
+								>
+									<FontAwesomeIcon icon={faInstagram} size="2x" />
+								</a>
+							</i>
+							<button className="ml-0 mt-14 after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg absolute w-full h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] rounded-sm px-4 py-3 mb-0 sm:m-3 bg-[#B59861] text-[#f3ecdd] font-bold font-grotesk ">
 								{t("left-button")}
 							</button>
-							<button className="ml-0 whitespace-nowrap after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg absolute top-12 w-full h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] border border-[#B59861] rounded-sm px-4 py-3 mt-3 sm:m-3 bg-transparent text-[#B59861] font-bold font-grotesk ">
+							<button className="ml-0 mt-14 whitespace-nowrap after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg absolute top-12 w-full h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] border border-[#B59861] rounded-sm px-4 py-3 sm:m-3 bg-transparent text-[#B59861] font-bold font-grotesk ">
 								{t("right-button")}
 							</button>
 						</span>
 					</p>
+					<div
+						data-aos="fade-up"
+						data-aos-delay="1000"
+						className="hidden sm:grid grid-flow-col gap-0"
+					>
+						<a
+							href="https://www.tiktok.com/@stoyanoviv"
+							target="_blank"
+							className="social"
+						>
+							<FontAwesomeIcon icon={faTiktok} size="2x" />
+						</a>
+						<a
+							href="https://www.instagram.com"
+							target="_blank"
+							className="social"
+						>
+							<FontAwesomeIcon icon={faInstagram} size="2x" />
+						</a>
+					</div>
 					<div className="grid-col-1 grid-rows-2 hidden sm:grid sm:grid-cols-2 gap-0 mt-[min(20px,5rem)]">
-						<button className="ml-0 relative after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg w-96 sm:w-36  h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] rounded-sm px-4 py-3 mb-0 sm:m-3 bg-[#B59861] text-[#f3ecdd] font-bold font-grotesk ">
+						<button
+							onClick={() => (window.location.hash = "#order")}
+							className="ml-0 relative after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg w-96 sm:w-36  h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] rounded-sm px-4 py-3 mb-0 sm:m-3 bg-[#B59861] text-[#f3ecdd] font-bold font-grotesk "
+						>
 							{t("left-button")}
 						</button>
 						<button className="ml-0 whitespace-nowrap  relative after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg w-96  sm:w-36 h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] border border-[#B59861] rounded-sm px-4 py-3 mt-3 sm:m-3 bg-transparent text-[#B59861] font-bold font-grotesk ">

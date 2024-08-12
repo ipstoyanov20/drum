@@ -144,7 +144,7 @@ function OrderForm() {
                 type="submit"
                 role="link"
 				disabled={isSubmitting}
-                className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#B59861] hover:bg-[#B59861]/90 transition-all duration-100"
+                className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-grotesk font-medium rounded-md text-white bg-[#B59861] hover:bg-[#B59861]/90 transition-all duration-100"
             >
                 {isSubmitting ? "Loading..." : t('button')}
             </button>
