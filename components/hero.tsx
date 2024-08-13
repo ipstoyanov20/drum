@@ -112,9 +112,12 @@ function Hero() {
 									<FontAwesomeIcon icon={faInstagram} size="2x" />
 								</a>
 							</i>
-							<button className="ml-0 mt-14 after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg absolute w-full h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] rounded-sm px-4 py-3 mb-0 sm:m-3 bg-[#B59861] text-[#f3ecdd] font-bold font-grotesk ">
+							<a
+								href="#order"
+								className="ml-0 mt-14 after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg absolute w-full h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] rounded-sm px-4 py-3 mb-0 sm:m-3 bg-[#B59861] text-[#f3ecdd] font-bold font-grotesk "
+							>
 								{t("left-button")}
-							</button>
+							</a>
 							<button className="ml-0 mt-14 whitespace-nowrap after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg absolute top-12 w-full h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] border border-[#B59861] rounded-sm px-4 py-3 sm:m-3 bg-transparent text-[#B59861] font-bold font-grotesk ">
 								{t("right-button")}
 							</button>
@@ -141,12 +144,11 @@ function Hero() {
 						</a>
 					</div>
 					<div className="grid-col-1 grid-rows-2 hidden sm:grid sm:grid-cols-2 gap-0 mt-[min(20px,5rem)]">
-						<button
-							onClick={() => (window.location.hash = "#order")}
-							className="ml-0 relative after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg w-96 sm:w-36  h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] rounded-sm px-4 py-3 mb-0 sm:m-3 bg-[#B59861] text-[#f3ecdd] font-bold font-grotesk "
-						>
-							{t("left-button")}
-						</button>
+						<a href="#order">
+							<button className="ml-0 relative after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg w-96 sm:w-36  h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] rounded-sm px-4 py-3 mb-0 sm:m-3 bg-[#B59861] text-[#f3ecdd] font-bold font-grotesk ">
+								{t("left-button")}
+							</button>
+						</a>
 						<button className="ml-0 whitespace-nowrap  relative after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg w-96  sm:w-36 h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] border border-[#B59861] rounded-sm px-4 py-3 mt-3 sm:m-3 bg-transparent text-[#B59861] font-bold font-grotesk ">
 							{t("right-button")}
 						</button>
