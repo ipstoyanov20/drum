@@ -10,6 +10,7 @@ export default async function handler(req: any, res: any) {
 		try {
 			const priceId =
 				locale == "en" ? process.env.PRICE_ID_EN! : process.env.PRICE_ID_BG!;
+
 			const session = await stripe.checkout.sessions.create({
 				line_items: [
 					{
