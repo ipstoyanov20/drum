@@ -72,7 +72,7 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       screens: {
-        'from-ex':'320px',
+        'from-ex':'270px',
         'to-ex':'326px',
       },
       keyframes: {

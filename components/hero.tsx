@@ -74,7 +74,7 @@ function Hero() {
 					<h1
 						ref={titleRef}
 						className={`z-[10] overflow-hidden px-[min(50px,10rem)] m-0 w-full sm:max-[705px]:text-8xl from-ex:max-to-ex:text-4xl ${
-							isBg ? "text-5xl" : "text-6xl"
+							isBg ? "text-5xl from-ex:max-[272px]:text-3xl" : "text-6xl"
 						} font-bold sm:font-bold text-left font-grotesk sm:text-center sm:text-9xl`}
 					>
 						{t("h1-title")}
@@ -82,7 +82,7 @@ function Hero() {
 					<h1
 						ref={titleBrRef}
 						className={`z-[10] overflow-hidden px-[min(50px,10rem)] m-0 w-full sm:max-[705px]:text-8xl from-ex:max-to-ex:text-4xl ${
-							isBg ? "text-5xl" : "text-6xl"
+							isBg ? "text-5xl from-ex:max-[272px]:text-3xl" : "text-6xl"
 						} font-bold sm:font-bold text-left font-grotesk sm:text-center sm:text-9xl`}
 					>
 						{t("h1-br-title")}
