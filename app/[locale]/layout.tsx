@@ -7,6 +7,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
+import Script from 'next/script';
 
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -32,6 +33,11 @@ export default async function RootLayout({
 		<html lang={locale}>
 			<head>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<Script
+					type="text/javascript"
+					src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+					strategy="lazyOnload"
+				/>
 			</head>
 			<body
 				className={cn(
@@ -40,9 +46,9 @@ export default async function RootLayout({
 				)}
 			>
 				<NextIntlClientProvider messages={messages}>
-						<Navbar />
-						{children}
-						<Footer />
+					<Navbar />
+					{children}
+					<Footer />
 				</NextIntlClientProvider>
 			</body>
 		</html>

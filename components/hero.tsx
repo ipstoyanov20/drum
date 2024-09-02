@@ -118,9 +118,14 @@ function Hero() {
 							>
 								{t("left-button")}
 							</a>
-							<button className="ml-0 mt-14 whitespace-nowrap after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg absolute top-12 w-full h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] border border-[#B59861] rounded-sm px-4 py-3 sm:m-3 bg-transparent text-[#B59861] font-bold font-grotesk ">
+							<a
+								className="ml-0 mt-14 whitespace-nowrap after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg absolute top-12 w-full h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] border border-[#B59861] rounded-sm px-4 py-3 sm:m-3 bg-transparent text-[#B59861] font-bold font-grotesk "
+								href="https://www.trustpilot.com/review/bgdrummer.com"
+								target="_blank"
+								rel="noopener"
+							>
 								{t("right-button")}
-							</button>
+							</a>
 						</span>
 					</p>
 					<div
@@ -149,9 +154,15 @@ function Hero() {
 								{t("left-button")}
 							</button>
 						</a>
-						<button className="ml-0 whitespace-nowrap  relative after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg w-96  sm:w-36 h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] border border-[#B59861] rounded-sm px-4 py-3 mt-3 sm:m-3 bg-transparent text-[#B59861] font-bold font-grotesk ">
-							{t("right-button")}
-						</button>
+						<a
+							href="https://www.trustpilot.com/review/bgdrummer.com"
+							target="_blank"
+							rel="noopener"
+						>
+							<button className="ml-0 whitespace-nowrap  relative after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg w-96  sm:w-36 h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] border border-[#B59861] rounded-sm px-4 py-3 mt-3 sm:m-3 bg-transparent text-[#B59861] font-bold font-grotesk ">
+								{t("right-button")}
+							</button>
+						</a>
 					</div>
 				</div>
 			</div>
