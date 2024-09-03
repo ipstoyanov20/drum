@@ -18,7 +18,7 @@ const fontSans = FontSans({
 
 export const metadata: Metadata = {
   title: "BG Drummer",
-  keywords: "drumming, music, custom greetings, BG Drummer, bgdrummer drummerbg, customgreetings, tarabuka, darbukabg, darbuka, tarabukabg",
+  keywords: "drumming, music, custom greetings, BG Drummer, bgdrummer, drummerbg, customgreetings, tarabuka, darbukabg, darbuka, tarabukabg",
   description: "Custom Greetings from the MASTER",
   robots: "index, follow",
 
