@@ -33,10 +33,11 @@ export default async function RootLayout({
 		<html lang={locale}>
 			<head>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<Script
-					type="text/javascript"
-					src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
-					strategy="lazyOnload"
+				<link
+					rel="icon"
+					href="/icon?<generated>"
+					type="image/<generated>"
+					sizes="<generated>"
 				/>
 			</head>
 			<body
