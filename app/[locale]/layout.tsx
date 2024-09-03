@@ -37,6 +37,12 @@ export default async function RootLayout({
 			<head>
 				<link rel="icon" href="/favicon.ico" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<meta name="description" content="Custom Greetings from the MASTER" />
+				<meta
+					name="keywords"
+					content="drumming, music, custom greetings, BG Drummer, bgdrummer, drummerbg, customgreetings, tarabuka, darbukabg, darbuka, tarabukabg"
+				/>
+				<meta name="robots" content="index, follow" />
 			</head>
 			<body
 				className={cn(
