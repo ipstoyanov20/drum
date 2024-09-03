@@ -4,6 +4,8 @@ import { db } from "@/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 import { loadStripe } from "@stripe/stripe-js";
 import { useTranslations } from "next-intl";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string,
@@ -101,12 +103,27 @@ function OrderForm() {
                         >
                         {t('phone')}
                     </label>
-                    <input
-                        type="tel"
-                        name="phone"
-                        id="phone"
-                        required
-                        className="mt-1 block w-full px-4 py-3 bg-transparent  rounded-md border-black border-2 shadow-bottom"
+                    <PhoneInput
+                        country={'bg'}
+                        value={``}
+                        inputProps={{
+                            required: true,
+                            name: "phone"
+                        }}
+                        inputStyle={{
+                            marginTop: "0.25rem",
+                            display: "block",
+                            width: "100%",
+                            height: "3.5rem",
+                            padding: "1rem 3rem",
+                            backgroundColor: "transparent",
+                            borderRadius: "0.375rem",
+                            borderColor: "black",
+                            borderWidth: "2px",
+                            boxShadow: "3px 5px 0 0px black",
+                          }}
+                        // id="phone"
+                        // required
                         />
                 </div>
             </div>
@@ -122,6 +139,7 @@ function OrderForm() {
                     name="YTlink"
                     id="YTlink"
                     required
+                    placeholder={`https://www.youtube.com/watch?v=VIDEO_ID`} 
                     className="mt-1 block w-full px-4 py-3 bg-transparent rounded-md border-black border-2 shadow-bottom"
                     />
             </div>
@@ -135,7 +153,8 @@ function OrderForm() {
                 <textarea
                     name="additionalInfo"
                     id="additionalInfo"
-                    rows={4}
+                    rows={7}
+                    placeholder={t('instructions-placeholder')}
                     className="mt-1 block w-full px-4 py-3 bg-transparent rounded-md border-black border-2 shadow-bottom"
                 ></textarea>
             </div>

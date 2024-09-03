@@ -30,6 +30,7 @@
     "next-intl": "^3.17.2",
     "react": "^18",
     "react-dom": "^18",
+    "react-phone-input-2": "^2.15.1",
     "split-type": "^0.3.4",
     "stripe": "^15.12.0",
     "tailwind-merge": "^2.3.0",
