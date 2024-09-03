@@ -32,7 +32,7 @@ export default async function RootLayout({
   return (
 		<html lang={locale}>
 			<head>
-				<link rel="icon" href="/favicon.ico">
+				<link rel="icon" href="/favicon.ico" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 			</head>
 			<body
