@@ -33,12 +33,6 @@ export default async function RootLayout({
 		<html lang={locale}>
 			<head>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
-				<link
-					rel="icon"
-					href="/icon?<generated>"
-					type="image/<generated>"
-					sizes="<generated>"
-				/>
 			</head>
 			<body
 				className={cn(
