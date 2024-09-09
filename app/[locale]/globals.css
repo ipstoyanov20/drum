@@ -110,10 +110,11 @@
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-box-shadow: 3px 5px 0 0px black !important;
     -webkit-text-fill-color: black !important;
+    -webkit-background-clip: text !important;
+    background-color: transparent !important;
   }
-
 
   .dropdown {
     position: relative;
