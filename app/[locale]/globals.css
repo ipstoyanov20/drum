@@ -88,6 +88,23 @@
   .radio:disabled {
     opacity: 1;
   }
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0%;
+    transform: scaleX(0);
+    width: 100%;
+    height: 100px;
+    background-color:#03B57B;
+    transition: transform 0.5s cubic-bezier(.215,.61,.355,1);
+    transform-origin: right;
+    z-index: -1;
+  }
+  
+  .nav-link:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
 
   input:-webkit-autofill,
   input:-webkit-autofill:hover,

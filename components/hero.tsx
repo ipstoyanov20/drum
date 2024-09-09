@@ -14,6 +14,7 @@ import {
   faTiktok,
   faInstagram
 } from "@fortawesome/free-brands-svg-icons";
+import trustpilot from "@/public/trustpilot.png";
 function Hero() {
 	const locale = useLocale();
 	const isBg = locale === "bg";
@@ -119,13 +120,18 @@ function Hero() {
 								{t("left-button")}
 							</a>
 							<a
-								className="ml-0 mt-14 whitespace-nowrap after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg absolute top-12 w-full h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] border border-[#B59861] rounded-sm px-4 py-3 sm:m-3 bg-transparent text-[#B59861] font-bold font-grotesk "
+								className="nav-link hover:text-white  ml-0 mt-14 overflow-hidden whitespace-nowrap after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg absolute top-12 w-full h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] border-2 border-[#03B57B] rounded-sm px-4 py-3 sm:m-3 bg-transparent text-[#03B57B] font-bold font-grotesk "
 								href="https://www.trustpilot.com/review/bgdrummer.com"
 								target="_blank"
 								rel="noopener"
 							>
 								{t("right-button")}
 							</a>
+							<Image
+								src={trustpilot}
+								className="scale-125 translate-y-40"
+								alt="Excellent performance"
+							/>
 						</span>
 					</p>
 					<div
@@ -159,11 +165,16 @@ function Hero() {
 							target="_blank"
 							rel="noopener"
 						>
-							<button className="ml-0 whitespace-nowrap  relative after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg w-96  sm:w-36 h-10 shadow-inner-top grid place-content-center shadow-[#D9D9D9] border border-[#B59861] rounded-sm px-4 py-3 mt-3 sm:m-3 bg-transparent text-[#B59861] font-bold font-grotesk ">
+							<button className="nav-link hover:text-white ml-0 whitespace-nowrap overflow-hidden  relative after:content-[''] after:top-0 after:left-0 after:absolute after:w-full after:h-full after:shadow-lg w-96 sm:w-36 h-10 shadow-inner-top transition-all duration-300 grid place-content-center shadow-[#D9D9D9] border-2 border-[#03B57B] rounded-sm px-4 py-3 mt-3 sm:m-3 bg-transparent text-[#03B57B] font-bold font-grotesk">
 								{t("right-button")}
 							</button>
 						</a>
 					</div>
+					<Image
+						src={trustpilot}
+						className="-translate-y-20 sm:block hidden"
+						alt="Excellent performance"
+					/>
 				</div>
 			</div>
 		</div>
