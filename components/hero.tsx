@@ -1,19 +1,16 @@
-"use client"
+"use client";
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import darbuka1 from "@/public/darbuka.jpeg";
 import darbuka2 from "@/public/darbuka2.jpeg";
 import { useTranslations } from "next-intl";
-import { gsap } from 'gsap';
-import SplitType from 'split-type'
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { gsap } from "gsap";
+import SplitType from "split-type";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { useLocale } from "next-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTiktok,
-  faInstagram
-} from "@fortawesome/free-brands-svg-icons";
+import { faTiktok, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import trustpilot from "@/public/trustpilot.png";
 function Hero() {
 	const locale = useLocale();
@@ -21,6 +18,28 @@ function Hero() {
 	const t = useTranslations("Hero");
 	const titleRef = useRef(null);
 	const titleBrRef = useRef(null);
+
+	const video1Ref = useRef<HTMLVideoElement>(null);
+	const video2Ref = useRef<HTMLVideoElement>(null);
+
+	const handlePlayVideos = () => {
+		if (video1Ref.current) {
+			video1Ref.current.play();
+			  setTimeout(() => {
+				if (video2Ref.current) {
+				  video2Ref.current.play();
+				  video2Ref.current.onended = () => {
+					  if (video1Ref.current) {
+						  video1Ref.current.currentTime = 0;
+						  video1Ref.current.pause();
+					  }
+				  };
+				}
+			  }, 1000); // 1 second delay
+			
+		  }
+	};
+
 	useEffect(() => {
 		AOS.init();
 		titleRef.current ? new SplitType(titleRef.current) : null;
@@ -42,7 +61,34 @@ function Hero() {
 	return (
 		<div className="grid place-items-start place-content-start sm:place-content-center bg-background h-auto w-screen mt-28">
 			<div className="flex-col">
+				<button
+					onClick={handlePlayVideos}
+					className="mb-4 px-4 py-2 bg-blue-500 text-white rounded"
+				>
+					Play Videos
+				</button>
 				<div className="top-[40%] left-[5%] lg:max-xl:-left-[5%] absolute lg:max-xl:scale-[60%] xl:max-2xl:scale-75 lg:block hidden opacity-80">
+					<div className="border-2 absolute top-[95%] left-[-10%] rounded-lg bg-white border-black shadow-bottom w-48 h-10 font-grotesk font-bold grid place-content-center place-items-center">
+						<p>{t("see-on-tiktok")}</p>
+					</div>
+					<video
+						ref={video1Ref}
+						src="/video1.mp4"
+						className="z-0 max-w-sm border-2 border-black shadow-bottom rounded-lg"
+						loop
+					/>
+				</div>
+				<div className="top-[15%] left-[75%] absolute lg:max-xl:scale-[60%] xl:max-2xl:scale-75 lg:block hidden opacity-80">
+					<div className="border-2 absolute z-10 translate-x-[120%] -translate-y-[40%] bg-white rounded-lg border-black shadow-bottom w-48 h-10 font-grotesk font-bold grid place-content-center place-items-center">
+						<p>{t("see-on-tiktok")}</p>
+					</div>
+					<video
+						ref={video2Ref}
+						src="/video2.mp4"
+						className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom absolute"
+					/>
+				</div>
+				{/* <div className="top-[40%] left-[5%] lg:max-xl:-left-[5%] absolute lg:max-xl:scale-[60%] xl:max-2xl:scale-75 lg:block hidden opacity-80">
 					<div className="border-2 absolute top-[95%] left-[-10%] rounded-lg bg-white border-black shadow-bottom w-48 h-10 font-grotesk font-bold grid place-content-center place-items-center">
 						<p>{t("see-on-tiktok")}</p>
 					</div>
@@ -63,7 +109,7 @@ function Hero() {
 						style={{ width: "auto", height: "auto" }}
 						className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom absolute"
 					/>
-				</div>
+				</div> */}
 
 				<div
 					data-aos="fade-up"
