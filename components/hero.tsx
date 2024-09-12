@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
-import darbuka1 from "@/public/darbuka.jpeg";
-import darbuka2 from "@/public/darbuka2.jpeg";
+import React, { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { gsap } from "gsap";
 import SplitType from "split-type";
@@ -11,6 +9,7 @@ import "aos/dist/aos.css";
 import { useLocale } from "next-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTiktok, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import trustpilot from "@/public/trustpilot.png";
 function Hero() {
 	const locale = useLocale();
@@ -23,22 +22,40 @@ function Hero() {
 	const video2Ref = useRef<HTMLVideoElement>(null);
 
 	const handlePlayVideos = () => {
-		if (video1Ref.current) {
-			video1Ref.current.play();
-			  setTimeout(() => {
-				if (video2Ref.current) {
-				  video2Ref.current.play();
-				  video2Ref.current.onended = () => {
-					  if (video1Ref.current) {
-						  video1Ref.current.currentTime = 0;
-						  video1Ref.current.pause();
-					  }
-				  };
-				}
-			  }, 1000); // 1 second delay
+		if (video1Ref.current && video2Ref.current) {
+			video1Ref.current.loop = false;
+			video2Ref.current.loop = false;
+
+			video1Ref.current.muted = false;
+			video2Ref.current.muted = false;
 			
-		  }
-	};
+			video1Ref.current.currentTime = 0;
+			video2Ref.current.currentTime = 0;
+			
+			gsap.to(video1Ref.current, { filter: "blur(1px)", duration: 1 });
+			gsap.to(video2Ref.current, { filter: "blur(1px)", duration: 1 });
+			
+			video2Ref.current.addEventListener("ended", () => {
+				
+				if (video1Ref.current && video2Ref.current) {
+					
+					gsap.to(video1Ref.current, { filter: "blur(4px)", duration: 1 });
+					gsap.to(video2Ref.current, { filter: "blur(4px)", duration: 1 });
+					
+					video1Ref.current.loop = true;
+					video1Ref.current.loop = true;
+
+					video1Ref.current.muted = true;
+					video2Ref.current.muted = true;
+					video1Ref.current.currentTime = 0;
+					video2Ref.current.currentTime = 0;
+					video1Ref.current.play();
+					video2Ref.current.play();
+				}
+				
+			});
+		}
+	  };
 
 	useEffect(() => {
 		AOS.init();
@@ -57,59 +74,46 @@ function Hero() {
 			opacity: 1,
 			delay: 0.5,
 		});
+
 	}, []);
 	return (
 		<div className="grid place-items-start place-content-start sm:place-content-center bg-background h-auto w-screen mt-28">
 			<div className="flex-col">
-				<button
-					onClick={handlePlayVideos}
-					className="mb-4 px-4 py-2 bg-blue-500 text-white rounded"
-				>
-					Play Videos
-				</button>
-				<div className="top-[40%] left-[5%] lg:max-xl:-left-[5%] absolute lg:max-xl:scale-[60%] xl:max-2xl:scale-75 lg:block hidden opacity-80">
-					<div className="border-2 absolute top-[95%] left-[-10%] rounded-lg bg-white border-black shadow-bottom w-48 h-10 font-grotesk font-bold grid place-content-center place-items-center">
-						<p>{t("see-on-tiktok")}</p>
-					</div>
+				<div className="w-screen flex absolute flex-col top-28 left-0 z-0 h-auto justify-center items-center">
+					<p className="uppercase mb-2 text-[#B59861]">{t("play-button")}</p>
+					<button
+						onClick={handlePlayVideos}
+						className="mb-4 px-4 py-2 bg-[#B59861] text-white btn-circle shadow-inner"
+					>
+						<FontAwesomeIcon icon={faPlay} className="ml-0.5" />
+					</button>
+				</div>
+				<div className="top-[15%] left-[5%] lg:max-xl:-left-[5%] absolute lg:max-xl:scale-[60%] xl:max-2xl:scale-75 lg:block hidden opacity-80">
+					<button className="pointer-events-none z-10 btn-circle p-10 border-2 absolute top-[90%] left-[-10%] bg-white border-black shadow-bottom font-grotesk font-bold grid place-content-center place-items-center">
+						<FontAwesomeIcon className="text-[#B59861]" icon={faInstagram} size="2x" />
+					</button>
 					<video
 						ref={video1Ref}
-						src="/video1.mp4"
-						className="z-0 max-w-sm border-2 border-black shadow-bottom rounded-lg"
+						src="/base.mp4"
+						className="max-w-sm border-2 border-black shadow-bottom rounded-lg blur-sm"
+						autoPlay
+						muted
 						loop
 					/>
 				</div>
 				<div className="top-[15%] left-[75%] absolute lg:max-xl:scale-[60%] xl:max-2xl:scale-75 lg:block hidden opacity-80">
-					<div className="border-2 absolute z-10 translate-x-[120%] -translate-y-[40%] bg-white rounded-lg border-black shadow-bottom w-48 h-10 font-grotesk font-bold grid place-content-center place-items-center">
-						<p>{t("see-on-tiktok")}</p>
-					</div>
+					<button className="pointer-events-none btn-circle p-10 border-2 absolute z-10 translate-x-[380%] -translate-y-[40%] bg-white  border-black shadow-bottom font-grotesk font-bold grid place-content-center place-items-center">
+						<FontAwesomeIcon className="text-[#B59861]" icon={faTiktok} size="2x" />
+					</button>
 					<video
 						ref={video2Ref}
-						src="/video2.mp4"
-						className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom absolute"
+						src="/stroke.mp4"
+						className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom absolute blur-sm"
+						autoPlay
+						muted
+						loop
 					/>
 				</div>
-				{/* <div className="top-[40%] left-[5%] lg:max-xl:-left-[5%] absolute lg:max-xl:scale-[60%] xl:max-2xl:scale-75 lg:block hidden opacity-80">
-					<div className="border-2 absolute top-[95%] left-[-10%] rounded-lg bg-white border-black shadow-bottom w-48 h-10 font-grotesk font-bold grid place-content-center place-items-center">
-						<p>{t("see-on-tiktok")}</p>
-					</div>
-					<Image
-						src={darbuka1}
-						alt="darbuk1"
-						style={{ width: "auto", height: "auto" }}
-						className="z-0 max-w-sm border-2 border-black shadow-bottom rounded-lg"
-					/>
-				</div>
-				<div className="top-[15%] left-[75%] absolute lg:max-xl:scale-[60%] xl:max-2xl:scale-75 lg:block hidden opacity-80">
-					<div className="border-2 absolute z-10 translate-x-[120%] -translate-y-[40%] bg-white rounded-lg border-black shadow-bottom w-48 h-10 font-grotesk font-bold grid place-content-center place-items-center">
-						<p>{t("see-on-tiktok")}</p>
-					</div>
-					<Image
-						src={darbuka2}
-						alt="darbuka2"
-						style={{ width: "auto", height: "auto" }}
-						className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom absolute"
-					/>
-				</div> */}
 
 				<div
 					data-aos="fade-up"
