@@ -41,7 +41,7 @@ function Hero() {
 					
 					gsap.to(video1Ref.current, { filter: "blur(4px)", duration: 1 });
 					gsap.to(video2Ref.current, { filter: "blur(4px)", duration: 1 });
-					
+
 					video1Ref.current.loop = true;
 					video1Ref.current.loop = true;
 
@@ -79,18 +79,22 @@ function Hero() {
 	return (
 		<div className="grid place-items-start place-content-start sm:place-content-center bg-background h-auto w-screen mt-28">
 			<div className="flex-col">
-				<div className="w-screen flex absolute flex-col top-28 left-0 z-0 h-auto justify-center items-center">
+				<div className="w-screen absolute flex-col top-28 left-0 z-0 h-auto justify-center items-center lg:flex hidden">
 					<p className="uppercase mb-2 text-[#B59861]">{t("play-button")}</p>
 					<button
 						onClick={handlePlayVideos}
-						className="mb-4 px-4 py-2 bg-[#B59861] text-white btn-circle shadow-inner"
+						className="mb-4 px-4 py-2 bg-[#B59861] text-white btn-circle shadow-inner "
 					>
 						<FontAwesomeIcon icon={faPlay} className="ml-0.5" />
 					</button>
 				</div>
 				<div className="top-[15%] left-[5%] lg:max-xl:-left-[5%] absolute lg:max-xl:scale-[60%] xl:max-2xl:scale-75 lg:block hidden opacity-80">
 					<button className="pointer-events-none z-10 btn-circle p-10 border-2 absolute top-[90%] left-[-10%] bg-white border-black shadow-bottom font-grotesk font-bold grid place-content-center place-items-center">
-						<FontAwesomeIcon className="text-[#B59861]" icon={faInstagram} size="2x" />
+						<FontAwesomeIcon
+							className="text-[#B59861]"
+							icon={faInstagram}
+							size="2x"
+						/>
 					</button>
 					<video
 						ref={video1Ref}
@@ -103,7 +107,11 @@ function Hero() {
 				</div>
 				<div className="top-[15%] left-[75%] absolute lg:max-xl:scale-[60%] xl:max-2xl:scale-75 lg:block hidden opacity-80">
 					<button className="pointer-events-none btn-circle p-10 border-2 absolute z-10 translate-x-[380%] -translate-y-[40%] bg-white  border-black shadow-bottom font-grotesk font-bold grid place-content-center place-items-center">
-						<FontAwesomeIcon className="text-[#B59861]" icon={faTiktok} size="2x" />
+						<FontAwesomeIcon
+							className="text-[#B59861]"
+							icon={faTiktok}
+							size="2x"
+						/>
 					</button>
 					<video
 						ref={video2Ref}
@@ -138,7 +146,7 @@ function Hero() {
 					>
 						{t("h1-br-title")}
 					</h1>
-					<p className="m-5 grid px-[min(50px,10rem)] w-full place-content-center text-left sm:text-center from-ex:max-to-ex:text-sm text-lg text-[#B59861] sm:text-base">
+					<div className="m-5 grid px-[min(50px,10rem)] w-full place-content-center text-left sm:text-center from-ex:max-to-ex:text-sm text-lg text-[#B59861] sm:text-base">
 						{t("lower-p")}
 						<br className="lg:block hidden " />
 						{t("lower-br-p")}
@@ -183,7 +191,7 @@ function Hero() {
 								alt="Excellent performance"
 							/>
 						</span>
-					</p>
+					</div>
 					<div
 						data-aos="fade-up"
 						data-aos-delay="1000"
@@ -225,6 +233,55 @@ function Hero() {
 						className="-translate-y-20 sm:block hidden"
 						alt="Excellent performance"
 					/>
+					{/*  */}
+					<div className="grid-cols-3 relative place-content-center place-items-center grid w-[80%] h-[100px]">
+						<div className="scale-[40%] lg:hidden block opacity-80">
+							<button className="pointer-events-none z-10 btn-circle p-10 border-2 absolute top-[90%] left-[-10%] bg-white border-black shadow-bottom font-grotesk font-bold grid place-content-center place-items-center">
+								<FontAwesomeIcon
+									className="text-[#B59861]"
+									icon={faInstagram}
+									size="2x"
+								/>
+							</button>
+							<video
+								ref={video1Ref}
+								src="/base.mp4"
+								className="max-w-sm border-2 border-black shadow-bottom rounded-lg blur-sm"
+								autoPlay
+								muted
+								loop
+							/>
+						</div>
+						<div className="w-screen flex-col z-0 h-auto justify-center items-center lg:hidden flex scale-75">
+							<p className="uppercase mb-2 text-[#B59861]">
+								{t("play-button")}
+							</p>
+							<button
+								onClick={handlePlayVideos}
+								className="mb-4 px-4 py-2 bg-[#B59861] text-white btn-circle shadow-inner"
+							>
+								<FontAwesomeIcon icon={faPlay} className="ml-0.5" />
+							</button>
+						</div>
+						<div className="scale-[40%] lg:hidden block opacity-80">
+							<button className="pointer-events-none btn-circle p-10 border-2 absolute z-10 translate-x-[380%] -translate-y-[40%] bg-white  border-black shadow-bottom font-grotesk font-bold grid place-content-center place-items-center">
+								<FontAwesomeIcon
+									className="text-[#B59861]"
+									icon={faTiktok}
+									size="2x"
+								/>
+							</button>
+							<video
+								ref={video2Ref}
+								src="/stroke.mp4"
+								className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom blur-sm"
+								autoPlay
+								muted
+								loop
+							/>
+						</div>
+					</div>
+					{/*  */}
 				</div>
 			</div>
 		</div>
