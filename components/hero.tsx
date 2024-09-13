@@ -11,6 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTiktok, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import trustpilot from "@/public/trustpilot.png";
+import useIntersectionObserver from "./useIntersectionObserver"; // Import the hook
+
 function Hero() {
 	const locale = useLocale();
 	const isBg = locale === "bg";
@@ -24,6 +26,17 @@ function Hero() {
 	const baseMobileRef = useRef<HTMLVideoElement>(null);
 	const strokeMobileRef = useRef<HTMLVideoElement>(null);
 
+	const isBaseVisible = useIntersectionObserver(baseRef, { threshold: 0.5 });
+	const isStrokeVisible = useIntersectionObserver(strokeRef, {
+		threshold: 0.5,
+	});
+	const isBaseMobileVisible = useIntersectionObserver(baseMobileRef, {
+		threshold: 0.5,
+	});
+	const isStrokeMobileVisible = useIntersectionObserver(strokeMobileRef, {
+		threshold: 0.5,
+	});
+
 	const handlePlayVideosOnDesktop = () => {
 		if (baseRef.current && strokeRef.current) {
 			baseRef.current.loop = false;
@@ -31,17 +44,15 @@ function Hero() {
 
 			baseRef.current.muted = false;
 			strokeRef.current.muted = false;
-			
+
 			baseRef.current.currentTime = 0;
 			strokeRef.current.currentTime = 0;
-			
+
 			gsap.to(baseRef.current, { filter: "blur(1px)", duration: 1 });
 			gsap.to(strokeRef.current, { filter: "blur(1px)", duration: 1 });
-			
+
 			strokeRef.current.addEventListener("ended", () => {
-				
 				if (baseRef.current && strokeRef.current) {
-					
 					gsap.to(baseRef.current, { filter: "blur(4px)", duration: 1 });
 					gsap.to(strokeRef.current, { filter: "blur(4px)", duration: 1 });
 
@@ -55,43 +66,72 @@ function Hero() {
 					baseRef.current.play();
 					strokeRef.current.play();
 				}
-				
 			});
 		}
-	  };
+	};
 
-	  const handlePlayVideosOnMobile = () => {
+	const handlePlayVideosOnMobile = () => {
 		if (baseMobileRef.current && strokeMobileRef.current) {
 			baseMobileRef.current.loop = false;
 			strokeMobileRef.current.loop = false;
-		  
+
 			baseMobileRef.current.muted = false;
 			strokeMobileRef.current.muted = false;
-		  
+
 			baseMobileRef.current.currentTime = 0;
 			strokeMobileRef.current.currentTime = 0;
-		  
+
 			gsap.to(baseMobileRef.current, { filter: "blur(1px)", duration: 1 });
 			gsap.to(strokeMobileRef.current, { filter: "blur(1px)", duration: 1 });
-		  
+
 			strokeMobileRef.current.addEventListener("ended", () => {
-			  if (baseMobileRef.current && strokeMobileRef.current) {
-				gsap.to(baseMobileRef.current, { filter: "blur(4px)", duration: 1 });
-				gsap.to(strokeMobileRef.current, { filter: "blur(4px)", duration: 1 });
-		  
-				baseMobileRef.current.loop = true;
-				strokeMobileRef.current.loop = true;
-		  
-				baseMobileRef.current.muted = true;
-				strokeMobileRef.current.muted = true;
-				baseMobileRef.current.currentTime = 0;
-				strokeMobileRef.current.currentTime = 0;
-				baseMobileRef.current.play();
-				strokeMobileRef.current.play();
-			  }
+				if (baseMobileRef.current && strokeMobileRef.current) {
+					gsap.to(baseMobileRef.current, { filter: "blur(4px)", duration: 1 });
+					gsap.to(strokeMobileRef.current, {
+						filter: "blur(4px)",
+						duration: 1,
+					});
+
+					baseMobileRef.current.loop = true;
+					strokeMobileRef.current.loop = true;
+
+					baseMobileRef.current.muted = true;
+					strokeMobileRef.current.muted = true;
+					baseMobileRef.current.currentTime = 0;
+					strokeMobileRef.current.currentTime = 0;
+					baseMobileRef.current.play();
+					strokeMobileRef.current.play();
+				}
 			});
-		  }
-	  }
+		}
+	};
+	useEffect(() => {
+		if (isBaseVisible && baseRef.current) {
+			baseRef.current.play();
+		} else if (baseRef.current) {
+			baseRef.current.pause();
+		}
+
+		if (isStrokeVisible && strokeRef.current) {
+			strokeRef.current.play();
+		} else if (strokeRef.current) {
+			strokeRef.current.pause();
+		}
+	}, [isBaseVisible, isStrokeVisible]);
+
+	useEffect(() => {
+		if (isBaseMobileVisible && baseMobileRef.current) {
+			baseMobileRef.current.play();
+		} else if (baseMobileRef.current) {
+			baseMobileRef.current.pause();
+		}
+
+		if (isStrokeMobileVisible && strokeMobileRef.current) {
+			strokeMobileRef.current.play();
+		} else if (strokeMobileRef.current) {
+			strokeMobileRef.current.pause();
+		}
+	}, [isBaseMobileVisible, isStrokeMobileVisible]);
 
 	useEffect(() => {
 		AOS.init();
@@ -110,7 +150,6 @@ function Hero() {
 			opacity: 1,
 			delay: 0.5,
 		});
-
 	}, []);
 	return (
 		<div className="grid place-items-start place-content-start sm:place-content-center bg-background h-auto w-screen mt-28">
