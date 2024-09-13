@@ -234,8 +234,8 @@ function Hero() {
 						alt="Excellent performance"
 					/>
 					{/*  */}
-					<div className="grid-cols-3 relative place-content-center place-items-center grid w-[80%] h-[100px]">
-						<div className="scale-[40%] lg:hidden block opacity-80">
+					<div className="grid-cols-3 relative place-content-center place-items-center gap-5 sm:gap-0 grid mt-[8rem] w-[80%] h-[100px]">
+						<div className="scale-[30%] min-[450px]:scale-[40%]  lg:hidden block opacity-80">
 							<button className="pointer-events-none z-10 btn-circle p-10 border-2 absolute top-[90%] left-[-10%] bg-white border-black shadow-bottom font-grotesk font-bold grid place-content-center place-items-center">
 								<FontAwesomeIcon
 									className="text-[#B59861]"
@@ -252,7 +252,7 @@ function Hero() {
 								loop
 							/>
 						</div>
-						<div className="w-screen flex-col z-0 h-auto justify-center items-center lg:hidden flex scale-75">
+						<div className="scale-[60%] sm:scale-[75%]  w-screen flex-col z-0 h-auto justify-center items-center lg:hidden flex">
 							<p className="uppercase mb-2 text-[#B59861]">
 								{t("play-button")}
 							</p>
@@ -263,7 +263,7 @@ function Hero() {
 								<FontAwesomeIcon icon={faPlay} className="ml-0.5" />
 							</button>
 						</div>
-						<div className="scale-[40%] lg:hidden block opacity-80">
+						<div className="scale-[30%] min-[450px]:scale-[40%] lg:hidden block opacity-80">
 							<button className="pointer-events-none btn-circle p-10 border-2 absolute z-10 translate-x-[380%] -translate-y-[40%] bg-white  border-black shadow-bottom font-grotesk font-bold grid place-content-center place-items-center">
 								<FontAwesomeIcon
 									className="text-[#B59861]"

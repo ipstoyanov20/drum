@@ -7,7 +7,7 @@ function Genres() {
 	const isBg = locale === "bg";
 	const t = useTranslations("Genres");
 	return (
-		<div id="genres" className="bg-background h-auto w-screen mt-[5rem] pt-24">
+		<div id="genres" className="bg-background h-auto w-screen mt-[2rem] sm:mt-[5rem] pt-24">
 			<div className="grid place-items-center place-content-start w-screen h-full px-10 py-0 flex-col lg:flex-row md:mt-0">
 				<h1 data-aos="fade-up" className={`font-grotesk font-bold from-ex:max-to-ex:text-4xl ${isBg ? 'text-5xl' : 'text-6xl'} md:text-9xl text-center`}>
 					<span className="text-[#B59861] m-0">{t("title")}</span> <br />{" "}
