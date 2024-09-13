@@ -18,44 +18,80 @@ function Hero() {
 	const titleRef = useRef(null);
 	const titleBrRef = useRef(null);
 
-	const video1Ref = useRef<HTMLVideoElement>(null);
-	const video2Ref = useRef<HTMLVideoElement>(null);
+	const baseRef = useRef<HTMLVideoElement>(null);
+	const strokeRef = useRef<HTMLVideoElement>(null);
 
-	const handlePlayVideos = () => {
-		if (video1Ref.current && video2Ref.current) {
-			video1Ref.current.loop = false;
-			video2Ref.current.loop = false;
+	const baseMobileRef = useRef<HTMLVideoElement>(null);
+	const strokeMobileRef = useRef<HTMLVideoElement>(null);
 
-			video1Ref.current.muted = false;
-			video2Ref.current.muted = false;
+	const handlePlayVideosOnDesktop = () => {
+		if (baseRef.current && strokeRef.current) {
+			baseRef.current.loop = false;
+			strokeRef.current.loop = false;
+
+			baseRef.current.muted = false;
+			strokeRef.current.muted = false;
 			
-			video1Ref.current.currentTime = 0;
-			video2Ref.current.currentTime = 0;
+			baseRef.current.currentTime = 0;
+			strokeRef.current.currentTime = 0;
 			
-			gsap.to(video1Ref.current, { filter: "blur(1px)", duration: 1 });
-			gsap.to(video2Ref.current, { filter: "blur(1px)", duration: 1 });
+			gsap.to(baseRef.current, { filter: "blur(1px)", duration: 1 });
+			gsap.to(strokeRef.current, { filter: "blur(1px)", duration: 1 });
 			
-			video2Ref.current.addEventListener("ended", () => {
+			strokeRef.current.addEventListener("ended", () => {
 				
-				if (video1Ref.current && video2Ref.current) {
+				if (baseRef.current && strokeRef.current) {
 					
-					gsap.to(video1Ref.current, { filter: "blur(4px)", duration: 1 });
-					gsap.to(video2Ref.current, { filter: "blur(4px)", duration: 1 });
+					gsap.to(baseRef.current, { filter: "blur(4px)", duration: 1 });
+					gsap.to(strokeRef.current, { filter: "blur(4px)", duration: 1 });
 
-					video1Ref.current.loop = true;
-					video1Ref.current.loop = true;
+					baseRef.current.loop = true;
+					baseRef.current.loop = true;
 
-					video1Ref.current.muted = true;
-					video2Ref.current.muted = true;
-					video1Ref.current.currentTime = 0;
-					video2Ref.current.currentTime = 0;
-					video1Ref.current.play();
-					video2Ref.current.play();
+					baseRef.current.muted = true;
+					strokeRef.current.muted = true;
+					baseRef.current.currentTime = 0;
+					strokeRef.current.currentTime = 0;
+					baseRef.current.play();
+					strokeRef.current.play();
 				}
 				
 			});
 		}
 	  };
+
+	  const handlePlayVideosOnMobile = () => {
+		if (baseMobileRef.current && strokeMobileRef.current) {
+			baseMobileRef.current.loop = false;
+			strokeMobileRef.current.loop = false;
+		  
+			baseMobileRef.current.muted = false;
+			strokeMobileRef.current.muted = false;
+		  
+			baseMobileRef.current.currentTime = 0;
+			strokeMobileRef.current.currentTime = 0;
+		  
+			gsap.to(baseMobileRef.current, { filter: "blur(1px)", duration: 1 });
+			gsap.to(strokeMobileRef.current, { filter: "blur(1px)", duration: 1 });
+		  
+			strokeMobileRef.current.addEventListener("ended", () => {
+			  if (baseMobileRef.current && strokeMobileRef.current) {
+				gsap.to(baseMobileRef.current, { filter: "blur(4px)", duration: 1 });
+				gsap.to(strokeMobileRef.current, { filter: "blur(4px)", duration: 1 });
+		  
+				baseMobileRef.current.loop = true;
+				strokeMobileRef.current.loop = true;
+		  
+				baseMobileRef.current.muted = true;
+				strokeMobileRef.current.muted = true;
+				baseMobileRef.current.currentTime = 0;
+				strokeMobileRef.current.currentTime = 0;
+				baseMobileRef.current.play();
+				strokeMobileRef.current.play();
+			  }
+			});
+		  }
+	  }
 
 	useEffect(() => {
 		AOS.init();
@@ -82,7 +118,7 @@ function Hero() {
 				<div className="w-screen absolute flex-col top-28 left-0 z-0 h-auto justify-center items-center lg:flex hidden">
 					<p className="uppercase mb-2 text-[#B59861]">{t("play-button")}</p>
 					<button
-						onClick={handlePlayVideos}
+						onClick={handlePlayVideosOnDesktop}
 						className="mb-4 px-4 py-2 bg-[#B59861] text-white btn-circle shadow-inner "
 					>
 						<FontAwesomeIcon icon={faPlay} className="ml-0.5" />
@@ -97,7 +133,7 @@ function Hero() {
 						/>
 					</button>
 					<video
-						ref={video1Ref}
+						ref={baseRef}
 						src="/base.mp4"
 						className="max-w-sm border-2 border-black shadow-bottom rounded-lg blur-sm"
 						autoPlay
@@ -114,7 +150,7 @@ function Hero() {
 						/>
 					</button>
 					<video
-						ref={video2Ref}
+						ref={strokeRef}
 						src="/stroke.mp4"
 						className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom absolute blur-sm"
 						autoPlay
@@ -244,7 +280,7 @@ function Hero() {
 								/>
 							</button>
 							<video
-								ref={video1Ref}
+								ref={baseMobileRef}
 								src="/base.mp4"
 								className="max-w-sm border-2 border-black shadow-bottom rounded-lg blur-sm"
 								autoPlay
@@ -257,7 +293,7 @@ function Hero() {
 								{t("play-button")}
 							</p>
 							<button
-								onClick={handlePlayVideos}
+								onClick={handlePlayVideosOnMobile}
 								className="mb-4 px-4 py-2 bg-[#B59861] text-white btn-circle shadow-inner"
 							>
 								<FontAwesomeIcon icon={faPlay} className="ml-0.5" />
@@ -272,7 +308,7 @@ function Hero() {
 								/>
 							</button>
 							<video
-								ref={video2Ref}
+								ref={strokeMobileRef}
 								src="/stroke.mp4"
 								className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom blur-sm"
 								autoPlay
