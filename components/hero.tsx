@@ -134,7 +134,7 @@ function Hero() {
 					</button>
 					<video
 						ref={baseRef}
-						src="/base.mp4"
+						src="https://porfolio.blob.core.windows.net/portfolio/base.mp4"
 						className="max-w-sm border-2 border-black shadow-bottom rounded-lg blur-sm"
 						autoPlay
 						muted
@@ -151,7 +151,7 @@ function Hero() {
 					</button>
 					<video
 						ref={strokeRef}
-						src="/stroke.mp4"
+						src="https://porfolio.blob.core.windows.net/portfolio/stroke.mp4"
 						className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom absolute blur-sm"
 						autoPlay
 						muted
@@ -281,7 +281,7 @@ function Hero() {
 							</button>
 							<video
 								ref={baseMobileRef}
-								src="/base.mp4"
+								src="https://porfolio.blob.core.windows.net/portfolio/base.mp4"
 								className="max-w-sm border-2 border-black shadow-bottom rounded-lg blur-sm"
 								autoPlay
 								muted
@@ -309,7 +309,7 @@ function Hero() {
 							</button>
 							<video
 								ref={strokeMobileRef}
-								src="/stroke.mp4"
+								src="https://porfolio.blob.core.windows.net/portfolio/stroke.mp4"
 								className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom blur-sm"
 								autoPlay
 								muted
