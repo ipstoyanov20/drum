@@ -177,10 +177,15 @@ function Hero() {
 						autoPlay
 						muted
 						loop
+						preload="metadata"
 					>
 						<source
 							src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/base-mIjP015TexQCEXrMYUVyCyRiecOikr.mp4"
 							type="video/mp4"
+						/>
+						<source
+							src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/base-imDPcGDsZHLeyHLwRocchBk0TkLK7y.webm"
+							type="video/webm"
 						/>
 						Your browser does not support the video tag.
 					</video>
@@ -199,10 +204,15 @@ function Hero() {
 						autoPlay
 						muted
 						loop
+						preload="metadata"
 					>
 						<source
 							src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/stroke-N167oTO8mOQK3vw4Ibg7Un4AQF1E7L.mp4"
 							type="video/mp4"
+						/>
+						<source
+							src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/stroke-aZRYWFQGRGfQbKglMR9CmAk40nuWPN.webm"
+							type="video/webm"
 						/>
 						Your browser does not support the video tag.
 					</video>
@@ -334,10 +344,15 @@ function Hero() {
 								autoPlay
 								muted
 								loop
+								preload="metadata"
 							>
 								<source
 									src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/base-mIjP015TexQCEXrMYUVyCyRiecOikr.mp4"
 									type="video/mp4"
+								/>
+								<source
+									src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/base-imDPcGDsZHLeyHLwRocchBk0TkLK7y.webm"
+									type="video/webm"
 								/>
 								Your browser does not support the video tag.
 							</video>
@@ -367,10 +382,15 @@ function Hero() {
 								autoPlay
 								muted
 								loop
+								preload="metadata"
 							>
 								<source
 									src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/stroke-N167oTO8mOQK3vw4Ibg7Un4AQF1E7L.mp4"
 									type="video/mp4"
+								/>
+								<source
+									src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/stroke-aZRYWFQGRGfQbKglMR9CmAk40nuWPN.webm"
+									type="video/webm"
 								/>
 								Your browser does not support the video tag.
 							</video>
