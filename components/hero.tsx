@@ -26,12 +26,12 @@ function Hero() {
 	const baseMobileRef = useRef<HTMLVideoElement>(null);
 	const strokeMobileRef = useRef<HTMLVideoElement>(null);
 
-	const isBaseVisible = useIntersectionObserver(baseRef, { threshold: 1 });
+	const isBaseVisible = useIntersectionObserver(baseRef, { threshold: 0.5 });
 	const isStrokeVisible = useIntersectionObserver(strokeRef, {
 		threshold: 0.5,
 	});
 	const isBaseMobileVisible = useIntersectionObserver(baseMobileRef, {
-		threshold: 1,
+		threshold: 0.5,
 	});
 	const isStrokeMobileVisible = useIntersectionObserver(strokeMobileRef, {
 		threshold: 0.5,
