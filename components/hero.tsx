@@ -26,12 +26,12 @@ function Hero() {
 	const baseMobileRef = useRef<HTMLVideoElement>(null);
 	const strokeMobileRef = useRef<HTMLVideoElement>(null);
 
-	const isBaseVisible = useIntersectionObserver(baseRef, { threshold: 0.5 });
+	const isBaseVisible = useIntersectionObserver(baseRef, { threshold: 1 });
 	const isStrokeVisible = useIntersectionObserver(strokeRef, {
 		threshold: 0.5,
 	});
 	const isBaseMobileVisible = useIntersectionObserver(baseMobileRef, {
-		threshold: 0.5,
+		threshold: 1,
 	});
 	const isStrokeMobileVisible = useIntersectionObserver(strokeMobileRef, {
 		threshold: 0.5,
@@ -173,14 +173,13 @@ function Hero() {
 					</button>
 					<video
 						ref={baseRef}
-						src="https://porfolio.blob.core.windows.net/portfolio/base.mp4"
 						className="max-w-sm border-2 border-black shadow-bottom rounded-lg blur-sm"
 						autoPlay
 						muted
 						loop
 					>
 						<source
-							src="https://porfolio.blob.core.windows.net/portfolio/base.mp4"
+							src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/base-mIjP015TexQCEXrMYUVyCyRiecOikr.mp4"
 							type="video/mp4"
 						/>
 						Your browser does not support the video tag.
@@ -202,7 +201,7 @@ function Hero() {
 						loop
 					>
 						<source
-							src="https://porfolio.blob.core.windows.net/portfolio/stroke.mp4"
+							src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/stroke-N167oTO8mOQK3vw4Ibg7Un4AQF1E7L.mp4"
 							type="video/mp4"
 						/>
 						Your browser does not support the video tag.
@@ -337,7 +336,7 @@ function Hero() {
 								loop
 							>
 								<source
-									src="https://porfolio.blob.core.windows.net/portfolio/base.mp4"
+									src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/base-mIjP015TexQCEXrMYUVyCyRiecOikr.mp4"
 									type="video/mp4"
 								/>
 								Your browser does not support the video tag.
@@ -370,7 +369,7 @@ function Hero() {
 								loop
 							>
 								<source
-									src="https://porfolio.blob.core.windows.net/portfolio/stroke.mp4"
+									src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/stroke-N167oTO8mOQK3vw4Ibg7Un4AQF1E7L.mp4"
 									type="video/mp4"
 								/>
 								Your browser does not support the video tag.
