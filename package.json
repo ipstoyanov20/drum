@@ -20,7 +20,6 @@
     "@splinetool/react-spline": "^4.0.0",
     "@splinetool/runtime": "^1.9.2",
     "@stripe/stripe-js": "^4.1.0",
-    "aos": "^2.3.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "firebase": "^10.13.0",
