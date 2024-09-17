@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTiktok, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import trustpilot from "@/public/trustpilot.png";
-import useIntersectionObserver from "./useIntersectionObserver"; // Import the hook
+// import useIntersectionObserver from "./useIntersectionObserver"; // Import the hook
 
 function Hero() {
 	const locale = useLocale();
@@ -26,16 +26,16 @@ function Hero() {
 	const baseMobileRef = useRef<HTMLVideoElement>(null);
 	const strokeMobileRef = useRef<HTMLVideoElement>(null);
 
-	const isBaseVisible = useIntersectionObserver(baseRef, { threshold: 0.5 });
-	const isStrokeVisible = useIntersectionObserver(strokeRef, {
-		threshold: 0.5,
-	});
-	const isBaseMobileVisible = useIntersectionObserver(baseMobileRef, {
-		threshold: 0.5,
-	});
-	const isStrokeMobileVisible = useIntersectionObserver(strokeMobileRef, {
-		threshold: 0.5,
-	});
+	// const isBaseVisible = useIntersectionObserver(baseRef, { threshold: 0.5 });
+	// const isStrokeVisible = useIntersectionObserver(strokeRef, {
+	// 	threshold: 0.5,
+	// });
+	// const isBaseMobileVisible = useIntersectionObserver(baseMobileRef, {
+	// 	threshold: 0.5,
+	// });
+	// const isStrokeMobileVisible = useIntersectionObserver(strokeMobileRef, {
+	// 	threshold: 0.5,
+	// });
 
 	const handlePlayVideosOnDesktop = () => {
 		if (baseRef.current && strokeRef.current) {
@@ -105,33 +105,33 @@ function Hero() {
 			});
 		}
 	};
-	useEffect(() => {
-		if (isBaseVisible && baseRef.current) {
-			baseRef.current.play();
-		} else if (baseRef.current) {
-			baseRef.current.pause();
-		}
+	// useEffect(() => {
+	// 	if (isBaseVisible && baseRef.current) {
+	// 		baseRef.current.play();
+	// 	} else if (baseRef.current) {
+	// 		baseRef.current.pause();
+	// 	}
 
-		if (isStrokeVisible && strokeRef.current) {
-			strokeRef.current.play();
-		} else if (strokeRef.current) {
-			strokeRef.current.pause();
-		}
-	}, [isBaseVisible, isStrokeVisible]);
+	// 	if (isStrokeVisible && strokeRef.current) {
+	// 		strokeRef.current.play();
+	// 	} else if (strokeRef.current) {
+	// 		strokeRef.current.pause();
+	// 	}
+	// }, [isBaseVisible, isStrokeVisible]);
 
-	useEffect(() => {
-		if (isBaseMobileVisible && baseMobileRef.current) {
-			baseMobileRef.current.play();
-		} else if (baseMobileRef.current) {
-			baseMobileRef.current.pause();
-		}
+	// useEffect(() => {
+	// 	if (isBaseMobileVisible && baseMobileRef.current) {
+	// 		baseMobileRef.current.play();
+	// 	} else if (baseMobileRef.current) {
+	// 		baseMobileRef.current.pause();
+	// 	}
 
-		if (isStrokeMobileVisible && strokeMobileRef.current) {
-			strokeMobileRef.current.play();
-		} else if (strokeMobileRef.current) {
-			strokeMobileRef.current.pause();
-		}
-	}, [isBaseMobileVisible, isStrokeMobileVisible]);
+	// 	if (isStrokeMobileVisible && strokeMobileRef.current) {
+	// 		strokeMobileRef.current.play();
+	// 	} else if (strokeMobileRef.current) {
+	// 		strokeMobileRef.current.pause();
+	// 	}
+	// }, [isBaseMobileVisible, isStrokeMobileVisible]);
 
 	useEffect(() => {
 		AOS.init();
