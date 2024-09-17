@@ -174,8 +174,8 @@ function Hero() {
 					<video
 						ref={baseRef}
 						className="max-w-sm border-2 border-black shadow-bottom rounded-lg blur-sm"
-						muted="muted"
-						loop="loop"
+						muted
+						loop
 						preload="auto"
 						poster="askphill.com/cdn/shop/files/preview_images/2a882052ba634622b991b7ce937a0a24.thumbnail.0000000000_1x.jpg?v=1710769843"
 						playsinline="playsinline"
@@ -203,8 +203,8 @@ function Hero() {
 					<video
 						ref={strokeRef}
 						className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom absolute blur-sm"
-						muted="muted"
-						loop="loop"
+						muted
+						loop
 						preload="auto"
 						poster="//askphill.com/cdn/shop/files/preview_images/2a882052ba634622b991b7ce937a0a24.thumbnail.0000000000_1x.jpg?v=1710769843"
 						playsinline="playsinline"
