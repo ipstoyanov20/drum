@@ -176,7 +176,7 @@ function Hero() {
 						className="max-w-sm border-2 border-black shadow-bottom rounded-lg blur-sm"
 						muted
 						loop
-						preload="auto"
+						preload="none"
 						// poster
 						data-loading={true}
 						playsInline={true}
@@ -206,7 +206,7 @@ function Hero() {
 						className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom absolute blur-sm"
 						muted
 						loop
-						preload="auto"
+						preload="none"
 						// poster
 						data-loading={true}
 						playsInline={true}
@@ -350,7 +350,7 @@ function Hero() {
 								autoPlay
 								muted
 								loop
-								preload="auto"
+								preload="none"
 								// poster
 								data-loading={true}
 								playsInline={true}
@@ -392,7 +392,7 @@ function Hero() {
 								autoPlay
 								muted
 								loop
-								preload="auto"
+								preload="none"
 								// poster
 								data-loading={true}
 								playsInline={true}
