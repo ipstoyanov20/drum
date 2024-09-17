@@ -174,11 +174,12 @@ function Hero() {
 					<video
 						ref={baseRef}
 						className="max-w-sm border-2 border-black shadow-bottom rounded-lg blur-sm"
-						autoPlay
-						muted
-						loop
-						preload="metadata"
-						poster
+						muted="muted"
+						loop="loop"
+						preload="auto"
+						poster="askphill.com/cdn/shop/files/preview_images/2a882052ba634622b991b7ce937a0a24.thumbnail.0000000000_1x.jpg?v=1710769843"
+						playsinline="playsinline"
+						
 					>
 						<source
 							src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/base-mIjP015TexQCEXrMYUVyCyRiecOikr.mp4"
@@ -202,11 +203,12 @@ function Hero() {
 					<video
 						ref={strokeRef}
 						className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom absolute blur-sm"
-						autoPlay
-						muted
-						loop
-						preload="metadata"
-						poster
+						muted="muted"
+						loop="loop"
+						preload="auto"
+						poster="//askphill.com/cdn/shop/files/preview_images/2a882052ba634622b991b7ce937a0a24.thumbnail.0000000000_1x.jpg?v=1710769843"
+						playsinline="playsinline"
+						
 					>
 						<source
 							src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/stroke-N167oTO8mOQK3vw4Ibg7Un4AQF1E7L.mp4"
@@ -346,8 +348,10 @@ function Hero() {
 								autoPlay
 								muted
 								loop
-								preload="metadata"
-								poster
+								preload="auto"
+								poster="//askphill.com/cdn/shop/files/preview_images/2a882052ba634622b991b7ce937a0a24.thumbnail.0000000000_1x.jpg?v=1710769843"
+								playsinline="playsinline"
+								
 							>
 								<source
 									src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/base-mIjP015TexQCEXrMYUVyCyRiecOikr.mp4"
@@ -385,8 +389,10 @@ function Hero() {
 								autoPlay
 								muted
 								loop
-								preload="metadata"
-								poster
+								preload="auto"
+								poster="//askphill.com/cdn/shop/files/preview_images/2a882052ba634622b991b7ce937a0a24.thumbnail.0000000000_1x.jpg?v=1710769843"
+								playsinline="playsinline"
+								
 							>
 								<source
 									src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/stroke-N167oTO8mOQK3vw4Ibg7Un4AQF1E7L.mp4"
