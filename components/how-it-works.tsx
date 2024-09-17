@@ -89,7 +89,7 @@ function Works() {
 								</span>
 							</div>
 						</div>
-						<div className="my-10 grid place-items-center place-content-center grid-cols-2 sm:grid-cols-1 grid-rows-2 sm:grid-rows-4 from-ex:max-to-ex:gap-x-52 scale-[60%] sm:scale-[80%] gap-x-48 sm:gap-y-0 sm:gap-x-0">
+						<div className="my-10 grid place-items-center place-content-center grid-cols-2 sm:grid-cols-1 grid-rows-2 sm:grid-rows-4 from-ex:max-to-ex:gap-x-52 scale-[60%] sm:scale-[80%] lg:scale-[60%] gap-x-48 sm:gap-y-0 sm:gap-x-0">
 							{keys.map((key, index) => (
 								<li
 									key={key}
