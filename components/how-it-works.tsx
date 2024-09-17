@@ -53,7 +53,7 @@ function Works() {
 				</h1>
 				<div className="grid place-content-center place-items-center">
 					<ul data-aos="fade-up" className="grid relative h-[80vh] place-items-center place-content-center grid-rows-[250px,450px] grid-cols-1 sm:grid-rows-1 sm:grid-cols-2 gap-x-48 sm:max-md:gap-x-[90%] sm:max-md:scale-[55%] md:max-lg:gap-x-[60%] md:max-lg:scale-[65%] ">
-						<div className="relative sm:max-md:scale-[85%] md:max-lg:scale-[90%] sm:ml-0 sm:mt-0 scale-[40%] lg:scale-100 z-0 shadow-bottom w-[600px] h-[500px] rounded-t-[5%] rounded-b-[5%] border-2 border-black ">
+						<div className="relative sm:max-md:scale-[85%] md:max-lg:scale-[90%] sm:ml-0 sm:mt-0 scale-[40%] lg:scale-[80%] z-0 shadow-bottom w-[600px] h-[500px] rounded-t-[5%] rounded-b-[5%] border-2 border-black ">
 							<img
 								src={blobImg.src}
 								className="absolute -top-[30%] -left-[38%] scale-50 opacity-90"
