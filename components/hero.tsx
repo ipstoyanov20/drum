@@ -177,8 +177,9 @@ function Hero() {
 						muted
 						loop
 						preload="auto"
-						poster
-						playsInline="playsinline"
+						// poster
+						data-loading={true}
+						playsInline={true}
 						
 					>
 						<source
@@ -206,8 +207,9 @@ function Hero() {
 						muted
 						loop
 						preload="auto"
-						poster
-						playsInline="playsinline"
+						// poster
+						data-loading={true}
+						playsInline={true}
 						
 					>
 						<source
@@ -349,8 +351,9 @@ function Hero() {
 								muted
 								loop
 								preload="auto"
-								poster
-								playsInline="playsinline"
+								// poster
+								data-loading={true}
+								playsInline={true}
 								
 							>
 								<source
@@ -390,8 +393,9 @@ function Hero() {
 								muted
 								loop
 								preload="auto"
-								poster
-								playsInline="playsinline"
+								// poster
+								data-loading={true}
+								playsInline={true}
 								
 							>
 								<source
