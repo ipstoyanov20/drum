@@ -178,7 +178,7 @@ function Hero() {
 						loop
 						preload="auto"
 						poster="askphill.com/cdn/shop/files/preview_images/2a882052ba634622b991b7ce937a0a24.thumbnail.0000000000_1x.jpg?v=1710769843"
-						playsinline="playsinline"
+						playsInline="playsinline"
 						
 					>
 						<source
@@ -207,7 +207,7 @@ function Hero() {
 						loop
 						preload="auto"
 						poster="//askphill.com/cdn/shop/files/preview_images/2a882052ba634622b991b7ce937a0a24.thumbnail.0000000000_1x.jpg?v=1710769843"
-						playsinline="playsinline"
+						playsInline="playsinline"
 						
 					>
 						<source
@@ -350,7 +350,7 @@ function Hero() {
 								loop
 								preload="auto"
 								poster="//askphill.com/cdn/shop/files/preview_images/2a882052ba634622b991b7ce937a0a24.thumbnail.0000000000_1x.jpg?v=1710769843"
-								playsinline="playsinline"
+								playsInline="playsinline"
 								
 							>
 								<source
@@ -391,7 +391,7 @@ function Hero() {
 								loop
 								preload="auto"
 								poster="//askphill.com/cdn/shop/files/preview_images/2a882052ba634622b991b7ce937a0a24.thumbnail.0000000000_1x.jpg?v=1710769843"
-								playsinline="playsinline"
+								playsInline="playsinline"
 								
 							>
 								<source
