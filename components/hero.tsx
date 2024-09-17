@@ -178,6 +178,7 @@ function Hero() {
 						muted
 						loop
 						preload="metadata"
+						poster
 					>
 						<source
 							src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/base-mIjP015TexQCEXrMYUVyCyRiecOikr.mp4"
@@ -205,6 +206,7 @@ function Hero() {
 						muted
 						loop
 						preload="metadata"
+						poster
 					>
 						<source
 							src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/stroke-N167oTO8mOQK3vw4Ibg7Un4AQF1E7L.mp4"
@@ -345,6 +347,7 @@ function Hero() {
 								muted
 								loop
 								preload="metadata"
+								poster
 							>
 								<source
 									src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/base-mIjP015TexQCEXrMYUVyCyRiecOikr.mp4"
@@ -383,6 +386,7 @@ function Hero() {
 								muted
 								loop
 								preload="metadata"
+								poster
 							>
 								<source
 									src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/stroke-N167oTO8mOQK3vw4Ibg7Un4AQF1E7L.mp4"
