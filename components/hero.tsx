@@ -163,7 +163,7 @@ function Hero() {
 						<FontAwesomeIcon icon={faPlay} className="ml-0.5" />
 					</button>
 				</div>
-				<div className="top-[15%] left-[5%] lg:max-xl:-left-[5%] absolute lg:max-xl:scale-[50%] xl:max-2xl:scale-[60%] lg:block hidden opacity-80">
+				<div className="top-[15%] left-[5%] lg:max-xl:-left-[5%] absolute lg:max-xl:scale-[50%] xl:max-2xl:top-[10%] xl:max-2xl:scale-[60%] lg:block hidden opacity-80">
 					<button className="pointer-events-none z-10 btn-circle p-10 border-2 absolute top-[90%] left-[-10%] bg-white border-black shadow-bottom font-grotesk font-bold grid place-content-center place-items-center">
 						<FontAwesomeIcon
 							className="text-[#B59861]"
@@ -193,7 +193,7 @@ function Hero() {
 						Your browser does not support the video tag.
 					</video>
 				</div>
-				<div className="top-[15%] left-[75%] absolute lg:max-xl:scale-[60%] xl:max-2xl:scale-[60%] lg:block hidden opacity-80">
+				<div className="top-[15%] left-[75%] absolute xl:max-2xl:top-[25%] lg:max-xl:scale-[60%] xl:max-2xl:scale-[60%] lg:block hidden opacity-80">
 					<button className="pointer-events-none btn-circle p-10 border-2 absolute z-10 translate-x-[380%] -translate-y-[40%] bg-white  border-black shadow-bottom font-grotesk font-bold grid place-content-center place-items-center">
 						<FontAwesomeIcon
 							className="text-[#B59861]"
