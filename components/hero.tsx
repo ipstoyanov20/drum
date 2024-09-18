@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { gsap } from "gsap";
 import SplitType from "split-type";
@@ -9,12 +9,14 @@ import "aos/dist/aos.css";
 import { useLocale } from "next-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTiktok, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 import trustpilot from "@/public/trustpilot.png";
 import useIntersectionObserver from "./useIntersectionObserver"; // Import the hook
 
 function Hero() {
 	const locale = useLocale();
+	const [isPlayingDesktop, setIsPlayingDesktop] = useState(false);
+    const [isPlayingMobile, setIsPlayingMobile] = useState(false);
 	const isBg = locale === "bg";
 	const t = useTranslations("Hero");
 	const titleRef = useRef(null);
@@ -36,6 +38,30 @@ function Hero() {
 	const isStrokeMobileVisible = useIntersectionObserver(strokeMobileRef, {
 		threshold: 0.5,
 	});
+
+	const togglePlayPauseDesktop = () => {
+        if (isPlayingDesktop) {
+            // Pause desktop videos
+            if (baseRef.current) baseRef.current.pause();
+            if (strokeRef.current) strokeRef.current.pause();
+        } else {
+            // Play desktop videos
+            handlePlayVideosOnDesktop();
+        }
+        setIsPlayingDesktop(!isPlayingDesktop);
+    };
+
+    const togglePlayPauseMobile = () => {
+        if (isPlayingMobile) {
+            // Pause mobile videos
+            if (baseMobileRef.current) baseMobileRef.current.pause();
+            if (strokeMobileRef.current) strokeMobileRef.current.pause();
+        } else {
+            // Play mobile videos
+            handlePlayVideosOnMobile();
+        }
+        setIsPlayingMobile(!isPlayingMobile);
+    };
 
 	const handlePlayVideosOnDesktop = () => {
 		if (baseRef.current && strokeRef.current) {
@@ -157,10 +183,10 @@ function Hero() {
 				<div className="w-screen absolute flex-col top-28 left-0 z-0 h-auto justify-center items-center lg:flex hidden">
 					<p className="uppercase mb-2 text-[#B59861]">{t("play-button")}</p>
 					<button
-						onClick={handlePlayVideosOnDesktop}
+						onClick={togglePlayPauseDesktop}
 						className="mb-4 px-4 py-2 bg-[#B59861] text-white btn-circle shadow-inner "
 					>
-						<FontAwesomeIcon icon={faPlay} className="ml-0.5" />
+						<FontAwesomeIcon icon={isPlayingDesktop ? faPause : faPlay} className="ml-0.5" />
 					</button>
 				</div>
 				<div className="top-[15%] left-[5%] lg:max-xl:-left-[5%] absolute lg:max-xl:scale-[50%] xl:max-2xl:top-[10%] xl:max-2xl:scale-[60%] lg:block hidden opacity-80">
@@ -372,10 +398,10 @@ function Hero() {
 								{t("play-button")}
 							</p>
 							<button
-								onClick={handlePlayVideosOnMobile}
+								onClick={togglePlayPauseMobile}
 								className="mb-4 px-4 py-2 bg-[#B59861] text-white btn-circle shadow-inner"
 							>
-								<FontAwesomeIcon icon={faPlay} className="ml-0.5" />
+								<FontAwesomeIcon icon={isPlayingMobile ? faPause : faPlay} className="ml-0.5" />
 							</button>
 						</div>
 						<div className="scale-[30%] min-[450px]:scale-[40%] lg:hidden block opacity-80">
