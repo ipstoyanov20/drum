@@ -76,6 +76,9 @@
     }
   }
 
+  body{
+    overflow-x: hidden;
+  }
   @font-face {
     font-family: 'Grotesk';
     src: url(../../assets/fonts/grotesk.ttf);

@@ -39,98 +39,63 @@ function Hero() {
 		threshold: 0.5,
 	});
 
-	const togglePlayPauseDesktop = () => {
-        if (isPlayingDesktop) {
-            // Pause desktop videos
-            if (baseRef.current) baseRef.current.pause();
-            if (strokeRef.current) strokeRef.current.pause();
+	const handlePlayPauseToggle = (isPlaying: boolean, setPlaying: React.Dispatch<React.SetStateAction<boolean>>, base: React.RefObject<HTMLVideoElement>, stroke: React.RefObject<HTMLVideoElement>, playVideos: () => void) => {
+        if (isPlaying) {
+            base.current?.pause();
+            stroke.current?.pause();
         } else {
-            // Play desktop videos
-            handlePlayVideosOnDesktop();
+			//if blur on base is "blur(1px)" then just .play()
+			base.current?.muted ? playVideos() : (base.current?.play(), stroke.current?.play());
         }
-        setIsPlayingDesktop(!isPlayingDesktop);
+        setPlaying(!isPlaying);
+    };
+	
+    const handlePlayVideos = (base: React.RefObject<HTMLVideoElement>, stroke: React.RefObject<HTMLVideoElement>, isPlaying: boolean, setPlaying: React.Dispatch<React.SetStateAction<boolean>>) => {
+        if (base.current && stroke.current) {
+            base.current.loop = false;
+            stroke.current.loop = false;
+            base.current.muted = false;
+            stroke.current.muted = false;
+            base.current.currentTime = 0;
+            stroke.current.currentTime = 0;
+
+            gsap.to(base.current, { filter: "blur(1px)", duration: 1 });
+            gsap.to(stroke.current, { filter: "blur(1px)", duration: 1 });
+
+            const handleVideoEnd = () => {
+                gsap.to(base.current, { filter: "blur(4px)", duration: 1 });
+                gsap.to(stroke.current, { filter: "blur(4px)", duration: 1 });
+
+                base.current!.loop = true;
+                stroke.current!.loop = true;
+                base.current!.muted = true;
+                stroke.current!.muted = true;
+                base.current!.currentTime = 0;
+                stroke.current!.currentTime = 0;
+                base.current!.play();
+                stroke.current!.play();
+				setPlaying(false);
+            };
+
+
+            stroke.current.addEventListener("ended", handleVideoEnd);
+
+            base.current.play();
+            stroke.current.play();
+        }
+    };
+
+    const togglePlayPauseDesktop = () => {
+        handlePlayPauseToggle(isPlayingDesktop, setIsPlayingDesktop, baseRef, strokeRef, () =>
+            handlePlayVideos(baseRef, strokeRef,isPlayingDesktop, setIsPlayingDesktop)
+        );
     };
 
     const togglePlayPauseMobile = () => {
-        if (isPlayingMobile) {
-            // Pause mobile videos
-            if (baseMobileRef.current) baseMobileRef.current.pause();
-            if (strokeMobileRef.current) strokeMobileRef.current.pause();
-        } else {
-            // Play mobile videos
-            handlePlayVideosOnMobile();
-        }
-        setIsPlayingMobile(!isPlayingMobile);
+        handlePlayPauseToggle(isPlayingMobile, setIsPlayingMobile, baseMobileRef, strokeMobileRef, () =>
+            handlePlayVideos(baseMobileRef, strokeMobileRef,isPlayingMobile, setIsPlayingMobile)
+        );
     };
-
-	const handlePlayVideosOnDesktop = () => {
-		if (baseRef.current && strokeRef.current) {
-			baseRef.current.loop = false;
-			strokeRef.current.loop = false;
-
-			baseRef.current.muted = false;
-			strokeRef.current.muted = false;
-
-			baseRef.current.currentTime = 0;
-			strokeRef.current.currentTime = 0;
-
-			gsap.to(baseRef.current, { filter: "blur(1px)", duration: 1 });
-			gsap.to(strokeRef.current, { filter: "blur(1px)", duration: 1 });
-
-			strokeRef.current.addEventListener("ended", () => {
-				if (baseRef.current && strokeRef.current) {
-					gsap.to(baseRef.current, { filter: "blur(4px)", duration: 1 });
-					gsap.to(strokeRef.current, { filter: "blur(4px)", duration: 1 });
-
-					baseRef.current.loop = true;
-					baseRef.current.loop = true;
-
-					baseRef.current.muted = true;
-					strokeRef.current.muted = true;
-					baseRef.current.currentTime = 0;
-					strokeRef.current.currentTime = 0;
-					baseRef.current.play();
-					strokeRef.current.play();
-				}
-			});
-		}
-	};
-
-	const handlePlayVideosOnMobile = () => {
-		if (baseMobileRef.current && strokeMobileRef.current) {
-			baseMobileRef.current.loop = false;
-			strokeMobileRef.current.loop = false;
-
-			baseMobileRef.current.muted = false;
-			strokeMobileRef.current.muted = false;
-
-			baseMobileRef.current.currentTime = 0;
-			strokeMobileRef.current.currentTime = 0;
-
-			gsap.to(baseMobileRef.current, { filter: "blur(1px)", duration: 1 });
-			gsap.to(strokeMobileRef.current, { filter: "blur(1px)", duration: 1 });
-
-			strokeMobileRef.current.addEventListener("ended", () => {
-				if (baseMobileRef.current && strokeMobileRef.current) {
-					gsap.to(baseMobileRef.current, { filter: "blur(4px)", duration: 1 });
-					gsap.to(strokeMobileRef.current, {
-						filter: "blur(4px)",
-						duration: 1,
-					});
-
-					baseMobileRef.current.loop = true;
-					strokeMobileRef.current.loop = true;
-
-					baseMobileRef.current.muted = true;
-					strokeMobileRef.current.muted = true;
-					baseMobileRef.current.currentTime = 0;
-					strokeMobileRef.current.currentTime = 0;
-					baseMobileRef.current.play();
-					strokeMobileRef.current.play();
-				}
-			});
-		}
-	};
 	useEffect(() => {
 		if (isBaseVisible && baseRef.current) {
 			baseRef.current.play();
@@ -177,6 +142,8 @@ function Hero() {
 			delay: 0.5,
 		});
 	}, []);
+
+
 	return (
 		<div className="grid place-items-start place-content-start sm:place-content-center bg-background h-auto w-screen mt-28">
 			<div className="flex-col">
@@ -373,7 +340,6 @@ function Hero() {
 							<video
 								ref={baseMobileRef}
 								className="max-w-sm border-2 border-black shadow-bottom rounded-lg blur-sm"
-								autoPlay
 								muted
 								loop
 								preload="none"
@@ -415,7 +381,6 @@ function Hero() {
 							<video
 								ref={strokeMobileRef}
 								className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom blur-sm"
-								autoPlay
 								muted
 								loop
 								preload="none"
