@@ -9,6 +9,13 @@ import React from "react";
 import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
+	faYoutube,
+	faStripe
+  } from "@fortawesome/free-brands-svg-icons";
+  import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 function Works() {
 	const t = useTranslations("Works");
@@ -124,7 +131,23 @@ function Works() {
 											{t(`${key}.subtitle`)}
 										</h2>
 										<p className="p-0 translate-y-[-50%] h-[100px] w-[min(200px,24rem)] sm:w-96 mb-16 sm:mb-0">
-											{t(`${key}.description`)}
+										{key == "3"
+  ? <>
+      <span className="text-icon">
+        {t(`${key}.description`)}
+        <FontAwesomeIcon className="text-blue-600 translate-y-2 mx-2" icon={faStripe} size="2x" />
+        {t(`${key}.des-cont`)}
+      </span>
+    </>
+  : key == "4"
+    ? <span className="text-icon">
+        {t(`${key}.description`)}
+        <FontAwesomeIcon className="text-red-600 translate-y-0 mx-2 mt-0" icon={faYoutube} size="1x" />
+        {t(`${key}.des-cont`)}
+      </span>
+    : t(`${key}.description`)
+}
+	
 										</p>
 									</div>
 								</li>
