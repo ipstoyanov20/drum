@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import LanguageSwitcher from "./lang-switcher";
 import Image from "next/image";
 import logo from "../public/logo.png";
-import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 
 function Navbar() {
