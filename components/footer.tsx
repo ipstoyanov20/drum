@@ -39,7 +39,7 @@ function Footer() {
 							<FontAwesomeIcon icon={faTiktok} size="2x" />
 						</a>
 						<a
-							href="https://www.instagram.com"
+							href="https://www.instagram.com/bg_drummer"
 							target="_blank"
 							className="social"
 						>

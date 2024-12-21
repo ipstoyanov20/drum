@@ -235,14 +235,14 @@ function Hero() {
 								className="grid absolute sm:hidden grid-flow-col pb-10 left-0 gap-2 w-auto"
 							>
 								<a
-									href="https://www.tiktok.com/@stoyanoviv"
+									href="https://www.tiktok.com/@bg_drummer"
 									target="_blank"
 									className="social text-black"
 								>
 									<FontAwesomeIcon icon={faTiktok} size="2x" />
 								</a>
 								<a
-									href="https://www.instagram.com"
+									href="https://www.instagram.com/bg_drummer"
 									target="_blank"
 									className="social text-black"
 								>
@@ -276,14 +276,14 @@ function Hero() {
 						className="hidden sm:grid grid-flow-col gap-0"
 					>
 						<a
-							href="https://www.tiktok.com/@stoyanoviv"
+							href="https://www.tiktok.com/@bg_drummer"
 							target="_blank"
 							className="social"
 						>
 							<FontAwesomeIcon icon={faTiktok} size="2x" />
 						</a>
 						<a
-							href="https://www.instagram.com"
+							href="https://www.instagram.com/bg_drummer"
 							target="_blank"
 							className="social"
 						>
