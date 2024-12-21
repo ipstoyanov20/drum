@@ -1,12 +1,20 @@
-"use server";
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Spline from "@splinetool/react-spline/next";
 import OrderForm from "./order-form";
 import darbuka3D from "../public/3d-darbuka.png";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
+
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const Darbuka3D = React.lazy(() => delay(500).then(() => import("./darbuka")));
 function Order() {
+	const [shown, setShown] = useState(false);
+	useEffect(() => {
+		setShown(true);
+	}, []);
 	const locale = useLocale();
 	const isBg = locale === "bg";
 	const t = useTranslations("Order");
@@ -14,7 +22,9 @@ function Order() {
 		<span id="order" className="pt-24 w-screen">
 			<h1
 				data-aos="fade-up"
-				className={`font-grotesk mb-10 font-bold from-ex:max-to-ex:text-4xl ${isBg ? 'text-5xl' : 'text-6xl'} md:text-9xl text-center`}
+				className={`font-grotesk mb-10 font-bold from-ex:max-to-ex:text-4xl ${
+					isBg ? "text-5xl" : "text-6xl"
+				} md:text-9xl text-center`}
 			>
 				{t("title")}
 			</h1>
@@ -29,10 +39,7 @@ function Order() {
 						className="lg:hidden block absolute scale-150 top-[25%] left-[0%] w-full h-full"
 						style={{ width: "auto", height: "auto" }}
 					/>
-					<Spline
-						className="cursor-pointer lg:block hidden w-full h-full"
-						scene="https://prod.spline.design/7c944-ndpVCUK5gj/scene.splinecode"
-					/>
+					{shown && <Darbuka3D />}
 				</div>
 				<OrderForm />
 			</div>

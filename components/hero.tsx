@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, Suspense } from "react";
 import { useTranslations } from "next-intl";
 import { gsap } from "gsap";
 import SplitType from "split-type";
@@ -11,12 +11,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTiktok, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
 import trustpilot from "@/public/trustpilot.png";
-import useIntersectionObserver from "./useIntersectionObserver"; // Import the hook
 
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const VideoComponent = React.lazy(() =>
+	delay(500).then(() => import("./video-component")),
+);
 function Hero() {
 	const locale = useLocale();
 	const [isPlayingDesktop, setIsPlayingDesktop] = useState(false);
-    const [isPlayingMobile, setIsPlayingMobile] = useState(false);
+	const [isPlayingMobile, setIsPlayingMobile] = useState(false);
+	const [shown, setShown] = useState(false);
 	const isBg = locale === "bg";
 	const t = useTranslations("Hero");
 	const titleRef = useRef(null);
@@ -28,103 +33,98 @@ function Hero() {
 	const baseMobileRef = useRef<HTMLVideoElement>(null);
 	const strokeMobileRef = useRef<HTMLVideoElement>(null);
 
-	const isBaseVisible = useIntersectionObserver(baseRef, { threshold: 0.5 });
-	const isStrokeVisible = useIntersectionObserver(strokeRef, {
-		threshold: 0.5,
-	});
-	const isBaseMobileVisible = useIntersectionObserver(baseMobileRef, {
-		threshold: 0.5,
-	});
-	const isStrokeMobileVisible = useIntersectionObserver(strokeMobileRef, {
-		threshold: 0.5,
-	});
 
-	const handlePlayPauseToggle = (isPlaying: boolean, setPlaying: React.Dispatch<React.SetStateAction<boolean>>, base: React.RefObject<HTMLVideoElement>, stroke: React.RefObject<HTMLVideoElement>, playVideos: () => void) => {
-        if (isPlaying) {
-            base.current?.pause();
-            stroke.current?.pause();
-        } else {
+	const handlePlayPauseToggle = (
+		isPlaying: boolean,
+		setPlaying: React.Dispatch<React.SetStateAction<boolean>>,
+		base: React.RefObject<HTMLVideoElement>,
+		stroke: React.RefObject<HTMLVideoElement>,
+		playVideos: () => void,
+	) => {
+		if (isPlaying) {
+			base.current?.pause();
+			stroke.current?.pause();
+		} else {
 			//if blur on base is "blur(1px)" then just .play()
-			base.current?.muted ? playVideos() : (base.current?.play(), stroke.current?.play());
-        }
-        setPlaying(!isPlaying);
-    };
-	
-    const handlePlayVideos = (base: React.RefObject<HTMLVideoElement>, stroke: React.RefObject<HTMLVideoElement>, isPlaying: boolean, setPlaying: React.Dispatch<React.SetStateAction<boolean>>) => {
-        if (base.current && stroke.current) {
-            base.current.loop = false;
-            stroke.current.loop = false;
-            base.current.muted = false;
-            stroke.current.muted = false;
-            base.current.currentTime = 0;
-            stroke.current.currentTime = 0;
+			base.current?.muted
+				? playVideos()
+				: (base.current?.play(), stroke.current?.play());
+		}
+		setPlaying(!isPlaying);
+	};
 
-            gsap.to(base.current, { filter: "blur(1px)", duration: 1 });
-            gsap.to(stroke.current, { filter: "blur(1px)", duration: 1 });
+	const handlePlayVideos = (
+		base: React.RefObject<HTMLVideoElement>,
+		stroke: React.RefObject<HTMLVideoElement>,
+		setPlaying: React.Dispatch<React.SetStateAction<boolean>>,
+	) => {
+		if (base.current && stroke.current) {
+			base.current.loop = false;
+			stroke.current.loop = false;
+			base.current.muted = false;
+			stroke.current.muted = false;
+			base.current.currentTime = 0;
+			stroke.current.currentTime = 0;
 
-            const handleVideoEnd = () => {
-                gsap.to(base.current, { filter: "blur(4px)", duration: 1 });
-                gsap.to(stroke.current, { filter: "blur(4px)", duration: 1 });
+			gsap.to(base.current, { filter: "blur(1px)", duration: 1 });
+			gsap.to(stroke.current, { filter: "blur(1px)", duration: 1 });
 
-                base.current!.loop = true;
-                stroke.current!.loop = true;
-                base.current!.muted = true;
-                stroke.current!.muted = true;
-                base.current!.currentTime = 0;
-                stroke.current!.currentTime = 0;
-                base.current!.play();
-                stroke.current!.play();
+			const handleVideoEnd = () => {
+				gsap.to(base.current, { filter: "blur(4px)", duration: 1 });
+				gsap.to(stroke.current, { filter: "blur(4px)", duration: 1 });
+
+				base.current!.loop = true;
+				stroke.current!.loop = true;
+				base.current!.muted = true;
+				stroke.current!.muted = true;
+				base.current!.currentTime = 0;
+				stroke.current!.currentTime = 0;
+				base.current!.play();
+				stroke.current!.play();
 				setPlaying(false);
-            };
+			};
 
+			stroke.current.addEventListener("ended", handleVideoEnd);
 
-            stroke.current.addEventListener("ended", handleVideoEnd);
-
-            base.current.play();
-            stroke.current.play();
-        }
-    };
-
-    const togglePlayPauseDesktop = () => {
-        handlePlayPauseToggle(isPlayingDesktop, setIsPlayingDesktop, baseRef, strokeRef, () =>
-            handlePlayVideos(baseRef, strokeRef,isPlayingDesktop, setIsPlayingDesktop)
-        );
-    };
-
-    const togglePlayPauseMobile = () => {
-        handlePlayPauseToggle(isPlayingMobile, setIsPlayingMobile, baseMobileRef, strokeMobileRef, () =>
-            handlePlayVideos(baseMobileRef, strokeMobileRef,isPlayingMobile, setIsPlayingMobile)
-        );
-    };
-	useEffect(() => {
-		if (isBaseVisible && baseRef.current) {
-			baseRef.current.play();
-		} else if (baseRef.current) {
-			baseRef.current.pause();
+			base.current.play();
+			stroke.current.play();
 		}
+	};
 
-		if (isStrokeVisible && strokeRef.current) {
-			strokeRef.current.play();
-		} else if (strokeRef.current) {
-			strokeRef.current.pause();
-		}
-	}, [isBaseVisible, isStrokeVisible]);
+	const togglePlayPauseDesktop = () => {
+		handlePlayPauseToggle(
+			isPlayingDesktop,
+			setIsPlayingDesktop,
+			baseRef,
+			strokeRef,
+			() =>
+				handlePlayVideos(
+					baseRef,
+					strokeRef,
+					setIsPlayingDesktop,
+				),
+		);
+	};
 
-	useEffect(() => {
-		if (isBaseMobileVisible && baseMobileRef.current) {
-			baseMobileRef.current.play();
-		} else if (baseMobileRef.current) {
-			baseMobileRef.current.pause();
-		}
+	const togglePlayPauseMobile = () => {
+		handlePlayPauseToggle(
+			isPlayingMobile,
+			setIsPlayingMobile,
+			baseMobileRef,
+			strokeMobileRef,
+			() =>
+				handlePlayVideos(
+					baseMobileRef,
+					strokeMobileRef,
+					setIsPlayingMobile,
+				),
+		);
+	};
 
-		if (isStrokeMobileVisible && strokeMobileRef.current) {
-			strokeMobileRef.current.play();
-		} else if (strokeMobileRef.current) {
-			strokeMobileRef.current.pause();
-		}
-	}, [isBaseMobileVisible, isStrokeMobileVisible]);
 
 	useEffect(() => {
+		setShown(true);
+
 		AOS.init();
 		titleRef.current ? new SplitType(titleRef.current) : null;
 		titleBrRef.current ? new SplitType(titleBrRef.current) : null;
@@ -143,7 +143,24 @@ function Hero() {
 		});
 	}, []);
 
-
+	const sources = [
+		{
+			src: "https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/base-mIjP015TexQCEXrMYUVyCyRiecOikr.mp4",
+			type: "video/mp4",
+		},
+		{
+			src: "https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/base-imDPcGDsZHLeyHLwRocchBk0TkLK7y.webm",
+			type: "video/webm",
+		},
+		{
+			src: "https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/stroke-N167oTO8mOQK3vw4Ibg7Un4AQF1E7L.mp4",
+			type: "video/mp4",
+		},
+		{
+			src: "https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/stroke-aZRYWFQGRGfQbKglMR9CmAk40nuWPN.webm",
+			type: "video/webm",
+		},
+	];
 	return (
 		<div className="grid place-items-start place-content-start sm:place-content-center bg-background h-auto w-screen mt-28">
 			<div className="flex-col">
@@ -153,7 +170,10 @@ function Hero() {
 						onClick={togglePlayPauseDesktop}
 						className="mb-4 px-4 py-2 bg-[#B59861] text-white btn-circle shadow-inner "
 					>
-						<FontAwesomeIcon icon={isPlayingDesktop ? faPause : faPlay} className="ml-0.5" />
+						<FontAwesomeIcon
+							icon={isPlayingDesktop ? faPause : faPlay}
+							className="ml-0.5"
+						/>
 					</button>
 				</div>
 				<div className="top-[15%] left-[5%] lg:max-xl:-left-[5%] absolute lg:max-xl:scale-[50%] xl:max-2xl:top-[10%] xl:max-2xl:scale-[60%] lg:block hidden opacity-80">
@@ -164,27 +184,9 @@ function Hero() {
 							size="2x"
 						/>
 					</button>
-					<video
-						ref={baseRef}
-						className="max-w-sm border-2 border-black shadow-bottom rounded-lg blur-sm"
-						muted
-						loop
-						preload="none"
-						// poster
-						data-loading={true}
-						playsInline={true}
-						
-					>
-						<source
-							src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/base-mIjP015TexQCEXrMYUVyCyRiecOikr.mp4"
-							type="video/mp4"
-						/>
-						<source
-							src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/base-imDPcGDsZHLeyHLwRocchBk0TkLK7y.webm"
-							type="video/webm"
-						/>
-						Your browser does not support the video tag.
-					</video>
+					{shown && (
+						<VideoComponent videoRef={baseRef} sources={sources.slice(0, 2)} />
+					)}
 				</div>
 				<div className="top-[15%] left-[75%] absolute xl:max-2xl:top-[25%] lg:max-xl:scale-[60%] xl:max-2xl:scale-[60%] lg:block hidden opacity-80">
 					<button className="pointer-events-none btn-circle p-10 border-2 absolute z-10 translate-x-[380%] -translate-y-[40%] bg-white  border-black shadow-bottom font-grotesk font-bold grid place-content-center place-items-center">
@@ -194,27 +196,9 @@ function Hero() {
 							size="2x"
 						/>
 					</button>
-					<video
-						ref={strokeRef}
-						className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom absolute blur-sm"
-						muted
-						loop
-						preload="none"
-						// poster
-						data-loading={true}
-						playsInline={true}
-						
-					>
-						<source
-							src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/stroke-N167oTO8mOQK3vw4Ibg7Un4AQF1E7L.mp4"
-							type="video/mp4"
-						/>
-						<source
-							src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/stroke-aZRYWFQGRGfQbKglMR9CmAk40nuWPN.webm"
-							type="video/webm"
-						/>
-						Your browser does not support the video tag.
-					</video>
+					{shown && (
+						<VideoComponent videoRef={strokeRef} sources={sources.slice(-2)} />
+					)}
 				</div>
 
 				<div
@@ -337,27 +321,12 @@ function Hero() {
 									size="2x"
 								/>
 							</button>
-							<video
-								ref={baseMobileRef}
-								className="max-w-sm border-2 border-black shadow-bottom rounded-lg blur-sm"
-								muted
-								loop
-								preload="none"
-								// poster
-								data-loading={true}
-								playsInline={true}
-								
-							>
-								<source
-									src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/base-mIjP015TexQCEXrMYUVyCyRiecOikr.mp4"
-									type="video/mp4"
+							{shown && (
+								<VideoComponent
+									videoRef={baseMobileRef}
+									sources={sources.slice(0, 2)}
 								/>
-								<source
-									src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/base-imDPcGDsZHLeyHLwRocchBk0TkLK7y.webm"
-									type="video/webm"
-								/>
-								Your browser does not support the video tag.
-							</video>
+							)}
 						</div>
 						<div className="scale-[60%] sm:scale-[75%]  w-screen flex-col z-0 h-auto justify-center items-center lg:hidden flex">
 							<p className="uppercase mb-2 text-[#B59861]">
@@ -367,7 +336,10 @@ function Hero() {
 								onClick={togglePlayPauseMobile}
 								className="mb-4 px-4 py-2 bg-[#B59861] text-white btn-circle shadow-inner"
 							>
-								<FontAwesomeIcon icon={isPlayingMobile ? faPause : faPlay} className="ml-0.5" />
+								<FontAwesomeIcon
+									icon={isPlayingMobile ? faPause : faPlay}
+									className="ml-0.5"
+								/>
 							</button>
 						</div>
 						<div className="scale-[30%] min-[450px]:scale-[40%] lg:hidden block opacity-80">
@@ -378,27 +350,12 @@ function Hero() {
 									size="2x"
 								/>
 							</button>
-							<video
-								ref={strokeMobileRef}
-								className="z-0 max-w-sm rounded-lg border-2 border-black shadow-bottom blur-sm"
-								muted
-								loop
-								preload="none"
-								// poster
-								data-loading={true}
-								playsInline={true}
-								
-							>
-								<source
-									src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/stroke-N167oTO8mOQK3vw4Ibg7Un4AQF1E7L.mp4"
-									type="video/mp4"
+							{shown && (
+								<VideoComponent
+									videoRef={strokeMobileRef}
+									sources={sources.slice(-2)}
 								/>
-								<source
-									src="https://zb4mb18vwff1cg95.public.blob.vercel-storage.com/stroke-aZRYWFQGRGfQbKglMR9CmAk40nuWPN.webm"
-									type="video/webm"
-								/>
-								Your browser does not support the video tag.
-							</video>
+							)}
 						</div>
 					</div>
 					{/*  */}
