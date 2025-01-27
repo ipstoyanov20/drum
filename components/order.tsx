@@ -1,20 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Spline from "@splinetool/react-spline/next";
 import OrderForm from "./order-form";
 import darbuka3D from "../public/3d-darbuka.png";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
 
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const Darbuka3D = React.lazy(() => delay(500).then(() => import("./darbuka")));
 function Order() {
-	const [shown, setShown] = useState(false);
-	useEffect(() => {
-		setShown(true);
-	}, []);
 	const locale = useLocale();
 	const isBg = locale === "bg";
 	const t = useTranslations("Order");
@@ -36,11 +28,10 @@ function Order() {
 					<Image
 						src={darbuka3D}
 						alt="darbuka-3d"
-						className="lg:hidden block absolute scale-150 top-[25%] left-[0%] w-full h-full"
+						className="block absolute scale-150 top-[25%] left-[0%] w-full h-full"
 						style={{ width: "auto", height: "auto" }}
 					/>
-					{shown && <Darbuka3D />}
-				</div>
+			</div>
 				<OrderForm />
 			</div>
 		</span>
