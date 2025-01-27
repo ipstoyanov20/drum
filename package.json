@@ -23,6 +23,7 @@
     "aos": "^2.3.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "dotenv": "^16.4.7",
     "firebase": "^10.13.0",
     "gsap": "^3.12.5",
     "lucide-react": "^0.400.0",
