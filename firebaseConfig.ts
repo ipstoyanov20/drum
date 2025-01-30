@@ -1,14 +1,15 @@
 import { initializeApp } from "firebase/app";
 import {getFirestore} from "firebase/firestore";
+
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  databaseURL: process.env.DATABASE_URL,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  appId: process.env.APP_ID,
-  measurementId: process.env.MEASUREMENT_ID
+  apiKey: "AIzaSyDLgepC1AYigwJm1GUOektdGk3GaAREuWA",
+  authDomain: "test-22e10.firebaseapp.com",
+  databaseURL: "https://test-22e10-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "test-22e10",
+  storageBucket: "test-22e10.firebasestorage.app",
+  messagingSenderId: "916672266585",
+  appId: "1:916672266585:web:722d0670912ff8bc38cc48",
+  measurementId: "G-7MC7T38QJB"
 };
 
 const app = initializeApp(firebaseConfig);
