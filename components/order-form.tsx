@@ -61,9 +61,8 @@ function OrderForm() {
 			const phone = formData.get("phone");
 			const ytlink = formData.get("YTlink");
 			const additionalInfo = formData.get("additionalInfo");
-			const timestamp = serverTimestamp();
 
-			const added = await AddData({ email, phone, ytlink, additionalInfo, timestamp});
+			const added = await AddData({ email, phone, ytlink, additionalInfo});
 			if (added) {
 				setIsSubmitting(true);
 				event.target.submit();
