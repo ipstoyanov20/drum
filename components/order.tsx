@@ -31,7 +31,7 @@ function Order() {
 						className="block absolute scale-150 top-[25%] left-[0%] w-full h-full"
 						style={{ width: "auto", height: "auto" }}
 					/>
-			</div>
+				</div>
 				<OrderForm />
 			</div>
 		</span>
