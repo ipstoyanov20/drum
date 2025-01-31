@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { db } from "@/firebaseConfig";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp} from "firebase/firestore";
 import { loadStripe } from "@stripe/stripe-js";
 import { useTranslations } from "next-intl";
 import PhoneInput from "react-phone-input-2";
@@ -41,6 +41,7 @@ function OrderForm() {
 				phone: data.phone,
 				ytlink: data.ytlink,
 				additionalInfo: data.additionalInfo,
+				timestamp: serverTimestamp(),
 			});
 			console.log("Document written with ID: ", docRef.id);
 			return true;
@@ -60,7 +61,6 @@ function OrderForm() {
 			const phone = formData.get("phone");
 			const ytlink = formData.get("YTlink");
 			const additionalInfo = formData.get("additionalInfo");
-			// const timestamp = new Date().toLocaleString(); 
 
 			const added = await AddData({ email, phone, ytlink, additionalInfo });
 			if (added) {
@@ -169,3 +169,7 @@ function OrderForm() {
 }
 
 export default OrderForm;
+function serverTimestamp() {
+	throw new Error("Function not implemented.");
+}
+
