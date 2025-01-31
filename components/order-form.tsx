@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { db } from "@/firebaseConfig";
-import { collection, addDoc, serverTimestamp} from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { loadStripe } from "@stripe/stripe-js";
 import { useTranslations } from "next-intl";
 import PhoneInput from "react-phone-input-2";
@@ -169,7 +169,3 @@ function OrderForm() {
 }
 
 export default OrderForm;
-function serverTimestamp() {
-	throw new Error("Function not implemented.");
-}
-
